@@ -50,6 +50,7 @@ void PlayerFallingState::Update(float deltaTime) {
 			!dynamic_cast<SlimeDeadState*>(e->GetStateMachine()->GetCurrentState())) {
 			printf("Player jumped on and slime is not dead yet\n");
 			e->ChangeState(State::SLIME_DEAD);
+			player->AddScore(100);
 		}
 	}
 }

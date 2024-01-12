@@ -29,7 +29,8 @@ void StartState::Render() {
 	App::Print(20, WINDOW_HEIGHT - 20, "WASD / arrow keys to control directions", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 40, "Space key to jump", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 60, "Jump on an enemy to kill it", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 80, "Press Space or Return to start the game!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 80, "Esc to exit", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 100, "Press Space or Return to start the game!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(WINDOW_WIDTH - 200, WINDOW_HEIGHT - 20, "Current Level: ", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(WINDOW_WIDTH - 60, WINDOW_HEIGHT - 20, std::to_string(currentLevel).c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 }

@@ -20,7 +20,6 @@ void PlayState::Enter() {
 	printf("Entering PlayState\n");
 	// Generate new gamelevel and player
 	gameLevel = levelMaker.Generate();
-	printf("Generated new gameLevel at address %p\n", gameLevel);
 
 	player = new Player(TILE_SIZE / 2, WINDOW_WIDTH / 2, *gameLevel);
 	background1->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
@@ -56,10 +55,21 @@ void PlayState::Render() {
 	gameLevel->Render();
 	player->Render();
 	
+	App::Print(WINDOW_WIDTH - 200, WINDOW_HEIGHT - 20, "Current Score: ", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(WINDOW_WIDTH - 60, WINDOW_HEIGHT - 20, std::to_string(player->GetScore()).c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+
+	// If player is dead, show dead UI
 	if (player->IsDead())
 	{
 		App::Print(20, WINDOW_HEIGHT - 20, "You are dead!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-		App::Print(20, WINDOW_HEIGHT - 40, "Press R to restart", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(20, WINDOW_HEIGHT - 40, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	}
+
+	// If player wins, show win UI
+	if (player->GetIsWin())
+	{
+		App::Print(20, WINDOW_HEIGHT - 20, "You win!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(20, WINDOW_HEIGHT - 40, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	}
 }
 
@@ -70,7 +80,7 @@ void PlayState::SpawnEnemies() {
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
 			if ((*tiles)[x][y]->Collidable()) {
-				if (GetRandom(10) == 1) {
+				if (GetRandom(5) == 1) {
 					printf("Added slime at column %d\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));

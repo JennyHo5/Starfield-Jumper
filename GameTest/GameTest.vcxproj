@@ -177,6 +177,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\states\player\PlayerWinState.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="lib\App\app.h" />
     <ClInclude Include="lib\App\AppSettings.h" />
@@ -215,6 +216,7 @@
     <ClInclude Include="src\tilesystem\TileMap.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\states\player\PlayerWinState.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="lib\App\app.cpp" />
     <ClCompile Include="lib\App\DirectSound.cpp" />

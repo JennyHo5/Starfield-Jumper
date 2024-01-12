@@ -5,6 +5,7 @@
 #include "states/player/PlayerJumpState.h"
 #include "states/player/PlayerFallingState.h"
 #include "states/player/PlayerDeadState.h"
+#include "states/player/PlayerWinState.h"
 
 
 class PlayerIdleState;
@@ -13,6 +14,7 @@ class PlayerJumpState;
 class PlayerFallingState;
 class PlayerAttackState;
 class PlayerDeadState;
+class PlayerWinState;
 
 enum PlayerAnimation
 {
@@ -34,5 +36,15 @@ public:
     void CheckLeftCollisions();
     void CheckRightCollisions();
     void CheckBottomCollisions();
+
+    int GetScore() const { return score; }
+    void AddScore(int add) { score += add; }
+
+    bool GetIsWin() const { return isWin; }
+    void SetWin() { isWin = true; }
+
+private:
+    int score;
+    bool isWin;
 };
 

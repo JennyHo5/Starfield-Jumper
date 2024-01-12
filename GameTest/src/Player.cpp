@@ -17,7 +17,11 @@ Player::Player(float x, float y, GameLevel& level):
 	stateMachine.AddState(State::JUMP, new PlayerJumpState(this));
 	stateMachine.AddState(State::FALLING, new PlayerFallingState(this));
 	stateMachine.AddState(State::DEAD, new PlayerDeadState(this));
+	stateMachine.AddState(State::WIN, new PlayerWinState(this));
 	stateMachine.ChangeState(State::FALLING);
+
+	score = 0;
+	isWin = false;
 }
 
 void Player::SetAnimation(PlayerAnimation anim) {
@@ -47,8 +51,9 @@ void Player::CheckLeftCollisions() {
 
 void Player::CheckRightCollisions() {
 	// Check if player reachs the right of the map
-	if (x >= MAP_WIDTH * (TILE_SIZE - 1) - width / 2) {
-		x = MAP_WIDTH * (TILE_SIZE - 1) - width / 2;
+	if (x >= MAP_WIDTH * (TILE_SIZE - 2)) {
+		x = MAP_WIDTH * (TILE_SIZE - 2);
+		ChangeState(State::WIN);
 	}
 
 

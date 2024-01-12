@@ -11,7 +11,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	std::vector<std::vector<int>> mapData(width, std::vector<int>(height, 0));
 
 	// Column by column generation
-	for (int x = 0; x < width; x++) {
+	for (int x = 0; x < width - 8; x++) {
 		// Lay out the empty space (from the middle to the top of the screen)
 		for (int y = GROUND_HEIGHT; y < height; y++) {
 			mapData[x][y] = TILE_ID_EMPTY;
@@ -61,12 +61,25 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		// If x column is a pillar, then change x column to pillar style
 	}
 
+	// Leave 8 tile width ground to generate big tree
+	for (int x = width - 8; x < width; x++) {
+		// Lay out the empty space (from the middle to the top of the screen)
+		for (int y = GROUND_HEIGHT; y < height; y++) {
+			mapData[x][y] = TILE_ID_EMPTY;
+		}
+
+		for (int y = 0; y < GROUND_HEIGHT - 1; y++) {
+			mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
+		}
+		mapData[x][GROUND_HEIGHT - 1] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];
+	}
+
 	return mapData;
 }
 
 void LevelMaker::GenerateDecors() {
+	// if there is a solid top with 2 tile width, might generate a rock
 	for (int x = 1; x < width; x++) {
-		// if there is a solid top with 2 tile width, might generate a rock
 		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY
 			&& mapData[x][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT] == TILE_ID_EMPTY)
 			{
@@ -78,8 +91,8 @@ void LevelMaker::GenerateDecors() {
 		}
 	}
 
+	// if there is a solid top with 4 tile width, might generate a small tree
 	for (int x = 3; x < width; x++) {
-		// if there is a solid top with 4 tile width, might generate a small tree
 		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 2][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 3][GROUND_HEIGHT - 1] != TILE_ID_EMPTY
 			&& mapData[x][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 2][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 3][GROUND_HEIGHT] == TILE_ID_EMPTY)
 		{
@@ -90,6 +103,11 @@ void LevelMaker::GenerateDecors() {
 			}
 		}
 	}
+
+	// Add the big tree at the end
+	GameObject* newBigTree = new GameObject(TILE_SIZE * MAP_WIDTH - BIG_TREE_WIDTH / 2, TILE_SIZE * (GROUND_HEIGHT + 1) + BIG_TREE_HEIGHT / 2, BIG_TREE_WIDTH, BIG_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\big-tree.png", 1, 1));
+	gameObjects->push_back(newBigTree);
+
 }
 
 GameLevel* LevelMaker::Generate() {

@@ -37,7 +37,7 @@ const float PLAYER_JUMP_VELOCITY = 0.4f;
 
 const float SLIME_WIDTH = 65.0f;
 const float SLIME_HEIGHT = 40.0f;
-const float SLIME_RUNNING_SPEED = 0.15f;
+const float SLIME_RUNNING_SPEED = 0.1f;
 const int SLIME_MOVING_DURATION = 2000;
 
 const float EAGLE_WIDTH = 64.0f;
@@ -50,6 +50,8 @@ const float ROCK_WIDTH = TILE_SIZE * 2;
 const float ROCK_HEIGHT = 80.0f;
 const float SMALL_TREE_WIDTH = 256.0f;
 const float SMALL_TREE_HEIGHT = 256.0f;
+const float BIG_TREE_WIDTH = 512.0f;
+const float BIG_TREE_HEIGHT = 512.0f - 4*16.0f;
 
 // Animation
 const float ANIMATION_SPEED = 0.1f;
@@ -69,6 +71,7 @@ enum class State {
 	JUMP,
 	FALLING,
 	DEAD,
+	WIN,
 	// SLIME States
 	SLIME_MOVING,
 	SLIME_DEAD,
