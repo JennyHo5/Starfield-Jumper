@@ -10,7 +10,8 @@ Entity::Entity(float x, float y, float width, float height, CSimpleSprite* sprit
 	height(height),
 	sprite(sprite),
 	direction(1),
-	level(l)
+	level(l),
+	isDead(false)
 {
 	sprite->SetPosition(x, y);
 }

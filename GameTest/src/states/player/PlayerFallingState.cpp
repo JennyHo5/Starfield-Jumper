@@ -46,9 +46,10 @@ void PlayerFallingState::Update(float deltaTime) {
 
 	// Check if we've collided with any entities and kill them if so
 	for (Entity* e : *player->GetGameLevel()->GetEntities()) {
-		if (player->InAttackRate(e)) {
-			printf("Player attacked enemy\n");
-			player->GetGameLevel()->RemoveEntity(e);
+		if (player->Collides(e)) {
+			printf("Player collided enemy\n");
+			e->ChangeState(State::SLIME_DEAD);
+			//player->GetGameLevel()->RemoveEntity(e);
 		}
 	}
 

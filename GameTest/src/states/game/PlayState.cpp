@@ -66,15 +66,16 @@ void PlayState::Render() {
 void PlayState::SpawnEnemies() {
 	std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 
-	// Spawn oposyms
+	// Spawn slimes
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
 			if ((*tiles)[x][y]->Collidable()) {
 				if (GetRandom(10) == 1) {
 					printf("Added slime at column %d\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-					slime->GetStateMachine()->AddState(State::SLIME_RUNNING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
-					slime->GetStateMachine()->ChangeState(State::SLIME_RUNNING);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
+					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
 					gameLevel->AddEntity(slime);
 				}
 			}

@@ -7,6 +7,7 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleSprite.cpp;C:\User
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\Game.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Game.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stb_image\stb_image.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stb_image.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stdafx.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stdafx.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\slime\SlimeDeadState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SlimeDeadState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Eagle.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Eagle.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Slime.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Slime.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Entity.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Entity.obj

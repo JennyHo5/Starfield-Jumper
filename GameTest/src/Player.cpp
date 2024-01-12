@@ -3,7 +3,6 @@
 #include "global/constants.h"
 
 Player::Player(float x, float y, GameLevel& level):
-	isDead(false),
 	Entity(x, y, PLAYER_WIDTH, PLAYER_HEIGHT, 
 		App::CreateSprite(".\\graphics\\player.png", 9, 5),
 		level)
@@ -80,11 +79,5 @@ void Player::CheckBottomCollisions() {
 			ChangeState(State::FALLING);
 		}
 	}
-}
-
-bool Player::InAttackRate(Entity* entity) const {
-	return !(x - width > entity->GetX() + entity->GetWidth() / 2 || entity->GetX() - entity->GetWidth() / 2 > x + width ||
-		y - height / 2 > entity->GetY() + entity->GetHeight() / 2 || entity->GetY() - entity->GetHeight() / 2 > y + height / 2);
-
 }
 

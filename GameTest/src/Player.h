@@ -34,13 +34,5 @@ public:
     void CheckLeftCollisions();
     void CheckRightCollisions();
     void CheckBottomCollisions();
-
-    bool InAttackRate(Entity*) const;
-
-    bool IsDead() const { return isDead; }
-    void SetDead() { isDead = true; }
-
-private:
-    bool isDead;
 };
 

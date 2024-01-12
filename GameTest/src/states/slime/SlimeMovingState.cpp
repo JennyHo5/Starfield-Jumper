@@ -11,7 +11,7 @@ SlimeMovingState::SlimeMovingState(TileMap* tm, Player* p, Slime* o):
 	slime->SetDirection(movingDirection);
 	movingDuration = GetRandom(SLIME_MOVING_DURATION);
 	movingTimer = 0;
-	o->GetSprite()->SetAnimation(MOVING);
+	o->GetSprite()->SetAnimation(SLIME_MOVING);
 }
 
 void SlimeMovingState::Update(float deltaTime) {

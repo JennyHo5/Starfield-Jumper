@@ -41,11 +41,14 @@ public:
 	GameLevel* GetGameLevel() { return &level; }
 	StateMachine* GetStateMachine() { return &stateMachine; }
 
+	bool IsDead() const { return isDead; }
+	void SetDead() { isDead = true; }
 
 protected:
 	// Draw CollideBox's line, for debugging
 	void DrawCollideBox();
 
+	bool isDead;
 	float x; // Left
 	float y; //Bottom
 	float dx;
