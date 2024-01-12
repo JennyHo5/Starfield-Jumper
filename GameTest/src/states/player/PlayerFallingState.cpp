@@ -46,11 +46,10 @@ void PlayerFallingState::Update(float deltaTime) {
 
 	// Check if we've collided with any entities and kill them if so
 	for (Entity* e : *player->GetGameLevel()->GetEntities()) {
-		if (player->Collides(e)) {
-			printf("Player collided enemy\n");
+		if (player->Collides(e) &&
+			!dynamic_cast<SlimeDeadState*>(e->GetStateMachine()->GetCurrentState())) {
+			printf("Player jumped on and slime is not dead yet\n");
 			e->ChangeState(State::SLIME_DEAD);
-			//player->GetGameLevel()->RemoveEntity(e);
 		}
 	}
-
 }

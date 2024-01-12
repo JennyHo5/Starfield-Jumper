@@ -7,5 +7,5 @@ Slime::Slime(float x, float y, GameLevel& level) :
 		level)
 {
 	sprite->CreateAnimation(SLIME_MOVING, ANIMATION_SPEED, { 0, 1, 2, 3, 4, 5, 6, 7 });
-	sprite->CreateAnimation(SLIME_DEAD, ANIMATION_SPEED, {14, 15, 16, 17, 18 });
+	sprite->CreateAnimation(SLIME_DEAD, ANIMATION_SPEED * 1/2, {14, 15, 16, 17, 18 });
 }

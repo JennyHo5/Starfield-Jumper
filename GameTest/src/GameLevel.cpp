@@ -16,7 +16,11 @@ void GameLevel::Init() {}
 
 void GameLevel::Update(float deltaTime) {
     for (Entity* e : *entities) {
-        e->Update(deltaTime);
+        if (e->IsDead()) {
+            RemoveEntity(e);
+        }
+        else
+            e->Update(deltaTime);
     }
 }
 

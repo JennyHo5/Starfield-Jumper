@@ -27,6 +27,7 @@ public:
 	// Exit the current state
 	void Exit();
 
+	BaseState* GetCurrentState() { return currentState; }
 
 private:
 	std::unordered_map<State, BaseState*> stateObjects;
