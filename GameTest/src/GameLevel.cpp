@@ -1,15 +1,21 @@
 #include "stdafx.h"
 #include "GameLevel.h"
 
-GameLevel::GameLevel(TileMap* tm, std::vector<Entity*>* es) : tileMap(tm), entities(es) {}
+GameLevel::GameLevel(TileMap* tm, std::vector<Entity*>* es, std::vector<GameObject*>* go):
+    tileMap(tm), entities(es), gameObjects(go) 
+{}
 
 GameLevel::~GameLevel() {
-    printf("Deleting tilemap at address %p\n", tileMap);
     delete tileMap;
     for (Entity* e : *entities) {
         delete e;
     }
     delete entities;
+
+    for (GameObject* o : *gameObjects) {
+        delete o;
+    }
+    delete gameObjects;
 }
 
 void GameLevel::Init() {}

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "LevelMaker.h"
 
-LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT), tileMap(nullptr), entities(nullptr)
+LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT), tileMap(nullptr), entities(nullptr), gameObjects(nullptr)
 {
 }
 
@@ -41,7 +41,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 			mapData[x][groundHeight - 1 + pillarHeight] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];;
 		}
 		// Chance to generate a grass or rock
-		else if (GetRandom(2) == 1) {
+		else if (GetRandom(3) == 1) {
 			if (mapData[x][0] != TILE_ID_EMPTY) // Is the column is not empty column
 			{
 				mapData[x][groundHeight] = TILE_ID_DECOR[GetRandom(DECOR_NUMBER) - 1];
@@ -68,8 +68,9 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 
 GameLevel* LevelMaker::Generate() {
 	entities = new std::vector<Entity*>(); // Deallocated in GameLevel
+	gameObjects = new std::vector<GameObject*>(); // Deallocated in GameLevel
 	tileMap = new TileMap(MAP_WIDTH, MAP_HEIGHT); // Deallocated in GameLevel
 	printf("Generating tileMap at address %p\n", tileMap);
 	tileMap->loadMap(GenerateMapData());
-	return new GameLevel(tileMap, entities); // Deallocated in PlayState
+	return new GameLevel(tileMap, entities, gameObjects); // Deallocated in PlayState
 }

@@ -16,5 +16,6 @@ private:
 	float height;
 	TileMap* tileMap;
 	std::vector<Entity*>* entities;
+	std::vector<GameObject*>* gameObjects;
 };
 
