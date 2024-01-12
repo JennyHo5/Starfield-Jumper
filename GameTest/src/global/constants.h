@@ -25,6 +25,7 @@ const int COLLIDABLE_SIZE = 3;
 
 const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
+const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
 
 const float PLAYER_WIDTH = 50.0f;
 const float PLAYER_HEIGHT = 80.0f;
@@ -40,6 +41,9 @@ const float EAGLE_WIDTH = 64.0f;
 const float EAGLE_HEIGHT = 64.0f;
 const float EAGLE_FLYING_SPEED = 0.15f;
 const int EAGLE_MOVING_DURATION = 4000;
+
+const float ROCK_WIDTH = TILE_SIZE * 2;
+const float ROCK_HEIGHT = 80.0f;
 
 const float ANIMATION_SPEED = 0.1f;
 

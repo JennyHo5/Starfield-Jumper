@@ -135,11 +135,17 @@ void PlayState::Translate() {
 	for (Entity* e : *entities) {
 		e->GetSprite()->SetPosition(e->GetX() - floor(camX), e->GetY());
 	}
+
+	// Game Objects
+	std::vector<GameObject*>* gameObjects = gameLevel->GetGameObjects();
+	for (GameObject* o : *gameObjects) {
+		o->GetSprite()->SetPosition(o->GetX() - floor(camX), o->GetY());
+	}
 }
 
 void PlayState::Exit() {
 	printf("Exiting Play State\n");
-	App::StopSound(".\\sounds\\background-music.wav");
+	// App::StopSound(".\\sounds\\background-music.wav");
 	delete player;
 	player = nullptr;
 	delete gameLevel;

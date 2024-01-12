@@ -32,6 +32,11 @@ void GameLevel::Update(float deltaTime) {
 
 void GameLevel::Render() {
     tileMap->Render();
+
+    for (GameObject* o : *gameObjects) {
+        o->Render();
+    }
+
     for (Entity* e : *entities) {
         e->Render();
     }
@@ -48,5 +53,18 @@ void GameLevel::RemoveEntity(Entity* e) {
     if (it != entities->end()) {
         entities->erase(it);
         delete e;
+    }
+}
+
+void GameLevel::AddGameObject(GameObject* o) {
+    gameObjects->push_back(o);
+}
+
+void GameLevel::RemoveGameObject(GameObject* o) {
+    auto it = std::find(gameObjects->begin(), gameObjects->end(), o);
+
+    if (it != gameObjects->end()) {
+        gameObjects->erase(it);
+        delete o;
     }
 }

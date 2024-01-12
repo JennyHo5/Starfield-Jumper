@@ -16,8 +16,12 @@ public:
 
     void AddEntity(Entity*);
     void RemoveEntity(Entity*);
+    void AddGameObject(GameObject*);
+    void RemoveGameObject(GameObject*);
+
     TileMap* GetTileMap() const { return tileMap; }
     std::vector<Entity*>* GetEntities() const { return entities; }
+    std::vector<GameObject*>* GetGameObjects() const { return gameObjects; }
 
 private:
     TileMap* tileMap;

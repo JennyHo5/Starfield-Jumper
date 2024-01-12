@@ -15,6 +15,7 @@ public:
 	float GetWidth() const { return width; }
 	float GetHeight() const { return height; }
 
+	CSimpleSprite* GetSprite() const { return sprite; }
 
 private:
 	float x;
