@@ -24,6 +24,7 @@ public:
 private:
     CSimpleSprite* background1;
     CSimpleSprite* background2;
+    CSimpleSprite* background3;
     float camX;
     float backgroundX;
     float backgroundY;

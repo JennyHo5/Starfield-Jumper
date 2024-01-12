@@ -2,8 +2,8 @@
 #include "StartState.h"
 
 StartState::StartState(): currentLevel(0) {
-	background1 = App::CreateSprite(".\\graphics\\background\\background_layer_1.png", 1, 1);
-	background2 = App::CreateSprite(".\\graphics\\background\\background_layer_2.png", 1, 1);
+	background1 = App::CreateSprite(".\\graphics\\background\\background_0.png", 1, 1);
+	background2 = App::CreateSprite(".\\graphics\\background\\background_1.png", 1, 1);
 	background1->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background2->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 }

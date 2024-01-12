@@ -3,13 +3,15 @@
 
 PlayState::PlayState(): gameLevel(nullptr), player(nullptr), backgroundX(0), backgroundY(0), camX(0)
 {
-	background1 = App::CreateSprite(".\\graphics\\background\\background_layer_1.png", 1, 1);
-	background2 = App::CreateSprite(".\\graphics\\background\\background_layer_2.png", 1, 1);
+	background1 = App::CreateSprite(".\\graphics\\background\\background_0.png", 1, 1);
+	background2 = App::CreateSprite(".\\graphics\\background\\background_1.png", 1, 1);
+	background3 = App::CreateSprite(".\\graphics\\background\\background_2.png", 1, 1);
 }
 
 PlayState::~PlayState() {
 	delete background1;
 	delete background2;
+	delete background3;
 	delete player;
 	delete gameLevel;
 }
@@ -23,13 +25,14 @@ void PlayState::Enter() {
 	player = new Player(TILE_SIZE / 2, WINDOW_WIDTH / 2, *gameLevel);
 	background1->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background2->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
+	background3->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background1->GetPosition(backgroundX, backgroundY);
 	camX = 0;
 
 	gameLevel->Init();
 	SpawnEnemies();
 
-	App::PlaySoundW(".\\sounds\\background-music.wav", true);
+	//App::PlaySoundW(".\\sounds\\background-music.wav", true);
 }
 
 void PlayState::Update(float deltaTime) {
@@ -48,9 +51,10 @@ void PlayState::Render() {
 	
 	background1->Draw();
 	background2->Draw();
+	background3->Draw();
 
-	player->Render();
 	gameLevel->Render();
+	player->Render();
 	
 	if (player->IsDead())
 	{
@@ -104,8 +108,13 @@ void PlayState::Translate() {
 	if (newX2 < 0)
 		newX2 = BACKGROUND_WIDTH / 2 + newX2;
 
+	float newX3 = fmod((backgroundX - floor(camX * 0.6)), BACKGROUND_LOOPING_POINT);
+	if (newX3 < 0)
+		newX3 = BACKGROUND_WIDTH / 2 + newX3;
+
 	background1->SetPosition(newX1, backgroundY); // Use floor to avoid blurry during movement
 	background2->SetPosition(newX2, backgroundY);
+	background3->SetPosition(newX3, backgroundY);
 
 	// Player
 	player->GetSprite()->SetPosition(player->GetX() - floor(camX), player->GetY());

@@ -38,7 +38,7 @@ bool Entity::Collides(Entity* entity) const {
 
 void Entity::Render() {
 	sprite->Draw();
-	// DrawCollideBox();
+	DrawCollideBox();
 }
 
 void Entity::SetX(float newX) { 

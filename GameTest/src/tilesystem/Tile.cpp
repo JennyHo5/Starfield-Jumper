@@ -8,7 +8,7 @@ Tile::Tile(int t, float x, float y) :
 	width(TILE_SIZE),
 	height(TILE_SIZE)
 {
-	tileset = App::CreateSprite(".\\graphics\\tileset_og.png", 14, 12);
+	tileset = App::CreateSprite(".\\graphics\\stringstar_fields_sheet.png", 18, 11);
 	tileset->SetFrame(id); // Set the til's sprite to tileset's id'th frame
 }
 

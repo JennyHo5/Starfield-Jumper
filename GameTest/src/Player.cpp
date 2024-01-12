@@ -5,14 +5,14 @@
 Player::Player(float x, float y, GameLevel& level):
 	isDead(false),
 	Entity(x, y, PLAYER_WIDTH, PLAYER_HEIGHT, 
-		App::CreateSprite(".\\graphics\\char_blue.png", 8, 7),
+		App::CreateSprite(".\\graphics\\player.png", 9, 5),
 		StateMachine(), level)
 {
 	sprite->CreateAnimation(IDLE, ANIMATION_SPEED, { 0, 1, 2, 3, 4, 5 });
-	sprite->CreateAnimation(WALKING, ANIMATION_SPEED, { 16, 17, 18, 19, 20, 21, 22, 23 });
-	sprite->CreateAnimation(JUMP, ANIMATION_SPEED * 3, {24, 25, 26, 27, 28, 29, 30, 31});
-	sprite->CreateAnimation(FALLING, ANIMATION_SPEED * 3, { 32, 33, 34, 35, 36, 37, 38, 39 });
-	sprite->CreateAnimation(DEAD, ANIMATION_SPEED, { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51});
+	sprite->CreateAnimation(WALKING, ANIMATION_SPEED, { 9, 10, 11, 12, 13, 14, 15, 16 });
+	sprite->CreateAnimation(JUMP, ANIMATION_SPEED * 3, {18, 19, 20});
+	sprite->CreateAnimation(FALLING, ANIMATION_SPEED * 3, { 22, 23, 24, 27 });
+	sprite->CreateAnimation(DEAD, ANIMATION_SPEED * 2, { 28, 29, 30, 31, 32, 33, 34, 35});
 	stateMachine.AddState(State::IDLE, new PlayerIdleState(this));
 	stateMachine.AddState(State::WALKING, new PlayerWalkingState(this));
 	stateMachine.AddState(State::JUMP, new PlayerJumpState(this));

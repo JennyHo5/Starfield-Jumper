@@ -15,7 +15,7 @@ void PlayerDeadState::Update(float deltaTime) {
 	animTimer += 1;
 	if (animTimer >= 12 * UPDATE_CALLS_PER_FRAME) {
 		player->GetSprite()->SetAnimation(-1);
-		player->GetSprite()->SetFrame(51);
+		player->GetSprite()->SetFrame(35);
 	}
 	if (App::IsKeyPressed(0x52))
 		StateMachineManager::GetInstance()->ChangeState(State::START);

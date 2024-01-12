@@ -30,7 +30,7 @@ void Update(float deltaTime)
 
 void Render()
 {
-	gStateMachine->Render();
+	gStateMachine->Render(); 
 }
 
 void Shutdown()

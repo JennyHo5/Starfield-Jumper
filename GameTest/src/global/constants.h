@@ -3,28 +3,28 @@
 const float WINDOW_WIDTH = APP_INIT_WINDOW_WIDTH;
 const float WINDOW_HEIGHT = APP_INIT_WINDOW_HEIGHT;
 
-const float BACKGROUND_WIDTH = 2754.0f;
+const float BACKGROUND_WIDTH = 2476.0f;
 const float BACKGROUND_HEIGHT = 774.0f;
 
 const float CAMERA_SCROLL_SPEED = 0.2f;
 const float BACKGROUND_LOOPING_POINT = BACKGROUND_WIDTH / 2;
 
-const float TILE_SIZE = 72.0f;
-const int TILE_ID_EMPTY = 153;
-const int TILE_ID_GROUND = 15;
-const int TILE_ID_TOP = 1;
-const int TILE_ID_GRASS[] = {70, 71, 72};
-const int GRASSES_NUMBER = 3;
-const int TILE_ID_LEFT = 14;
-const int TILE_ID_TOPLEFT = 0;
-const int TILE_ID_PILLAR_TOP = 34;
-const int TILE_ID_PILLAR_GROUND = 62;
+const float TILE_SIZE = 64.0f;
+const int TILE_ID_EMPTY = 22;
+const int TILE_ID_GROUND = 179;
+const int TILE_ID_TOP = 170;
+const int TILE_ID_GRASS[] = {72, 73};
+const int GRASSES_NUMBER = 2;
+const int TILE_ID_LEFT = 162;
+const int TILE_ID_TOPLEFT = 180;
+const int TILE_ID_PILLAR_TOP = 144;
+const int TILE_ID_PILLAR_GROUND = 162;
 
 const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
 
-const float PLAYER_WIDTH = 43.0f;
-const float PLAYER_HEIGHT = 120.0f;
+const float PLAYER_WIDTH = 50.0f;
+const float PLAYER_HEIGHT = 80.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 
