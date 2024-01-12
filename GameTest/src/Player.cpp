@@ -6,7 +6,7 @@ Player::Player(float x, float y, GameLevel& level):
 	isDead(false),
 	Entity(x, y, PLAYER_WIDTH, PLAYER_HEIGHT, 
 		App::CreateSprite(".\\graphics\\player.png", 9, 5),
-		StateMachine(), level)
+		level)
 {
 	sprite->CreateAnimation(IDLE, ANIMATION_SPEED, { 0, 1, 2, 3, 4, 5 });
 	sprite->CreateAnimation(WALKING, ANIMATION_SPEED, { 9, 10, 11, 12, 13, 14, 15, 16 });

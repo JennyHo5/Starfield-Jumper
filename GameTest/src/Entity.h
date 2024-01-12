@@ -8,7 +8,7 @@ class GameLevel;
 class Entity
 {
 public:
-	Entity(float x, float y, float width, float height, CSimpleSprite* sprite, StateMachine stateMachine, GameLevel& level);
+	Entity(float x, float y, float width, float height, CSimpleSprite* sprite, GameLevel& level);
 	~Entity();
 
 	void ChangeState(State state);

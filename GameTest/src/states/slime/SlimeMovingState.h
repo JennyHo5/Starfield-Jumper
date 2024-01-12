@@ -2,21 +2,21 @@
 #include "states/BaseState.h"
 #include "tilesystem/TileMap.h"
 #include "Player.h"
-#include "enemy/Oposum.h"
+#include "enemy/Slime.h"
 
-class Oposum;
+class Slime;
 
-class OposumRunningState :
+class SlimeMovingState :
     public BaseState
 {
 public:
-    OposumRunningState(TileMap*, Player*, Oposum*);
+    SlimeMovingState(TileMap*, Player*, Slime *);
     void Update(float deltaTime) override;
 
 private:
     TileMap* map;
     Player* player;
-    Oposum* oposum;
+    Slime* slime;
     bool movingDirection; // 0 = left, 1 = right
     int movingDuration;
     float movingTimer;

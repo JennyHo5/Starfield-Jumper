@@ -2,7 +2,7 @@
 #include "states/BaseState.h"
 #include "Player.h"
 #include "LevelMaker.h"
-#include "enemy/Oposum.h"
+#include "enemy/Slime.h"
 #include "enemy/Eagle.h"
 
 class PlayState: public BaseState

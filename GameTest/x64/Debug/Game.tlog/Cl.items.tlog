@@ -1,4 +1,5 @@
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\app.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\app.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\DirectSound.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\DirectSound.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\main.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\main.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleController.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SimpleController.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleSound.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SimpleSound.obj
@@ -7,7 +8,7 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\Game.cpp;C:\Users\Jiayu\Desktop\
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stb_image\stb_image.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stb_image.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stdafx.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stdafx.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Eagle.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Eagle.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Oposum.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Oposum.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Slime.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Slime.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Entity.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Entity.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\GameLevel.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\GameLevel.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\LevelMaker.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\LevelMaker.obj
@@ -18,7 +19,7 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\BaseState.cpp;C:\User
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\eagle\EagleFlyingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\EagleFlyingState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\PlayState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\StartState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\StartState.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\oposum\OposumRunningState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\OposumRunningState.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\slime\SlimeMovingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SlimeMovingState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerDeadState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerDeadState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerFallingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerFallingState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerIdleState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerIdleState.obj

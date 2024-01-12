@@ -71,11 +71,11 @@ void PlayState::SpawnEnemies() {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
 			if ((*tiles)[x][y]->Collidable()) {
 				if (GetRandom(10) == 1) {
-					printf("Added Oposum at column %d\n", x);
-					Oposum* oposum = new Oposum((x + 1) * TILE_SIZE - OPOSUM_WIDTH / 2, (y + 1) * TILE_SIZE + OPOSUM_HEIGHT / 2, *gameLevel);
-					oposum->GetStateMachine()->AddState(State::OPOSUM_RUNNING, new OposumRunningState(gameLevel->GetTileMap(), player, oposum));
-					oposum->GetStateMachine()->ChangeState(State::OPOSUM_RUNNING);
-					gameLevel->AddEntity(oposum);
+					printf("Added slime at column %d\n", x);
+					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_RUNNING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
+					slime->GetStateMachine()->ChangeState(State::SLIME_RUNNING);
+					gameLevel->AddEntity(slime);
 				}
 			}
 		}

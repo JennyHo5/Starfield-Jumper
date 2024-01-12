@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Entity.h"
 
-Entity::Entity(float x, float y, float width, float height, CSimpleSprite* sprite, StateMachine stateMachine, GameLevel& l) :
+Entity::Entity(float x, float y, float width, float height, CSimpleSprite* sprite, GameLevel& l) :
 	x(x),
 	y(y),
 	dx(0),
@@ -10,7 +10,6 @@ Entity::Entity(float x, float y, float width, float height, CSimpleSprite* sprit
 	height(height),
 	sprite(sprite),
 	direction(1),
-	stateMachine(stateMachine),
 	level(l)
 {
 	sprite->SetPosition(x, y);

@@ -32,7 +32,7 @@ void EagleFlyingState::Update(float deltaTime) {
 		eagle->SetX(eagle->GetX() - EAGLE_FLYING_SPEED * deltaTime);
 
 		// stop if there's a solid tile directly left
-		Tile* tileLeft = map->PointToTile(eagle->GetX() - OPOSUM_WIDTH / 2, eagle->GetY());
+		Tile* tileLeft = map->PointToTile(eagle->GetX() - EAGLE_WIDTH / 2, eagle->GetY());
 
 		if (tileLeft && tileLeft->Collidable()) {
 			eagle->SetX(eagle->GetX() + EAGLE_FLYING_SPEED * deltaTime);
@@ -49,7 +49,7 @@ void EagleFlyingState::Update(float deltaTime) {
 		eagle->SetX(eagle->GetX() + EAGLE_FLYING_SPEED * deltaTime);
 
 		// stop if there's a solid tile directly right
-		Tile* tileRight = map->PointToTile(eagle->GetX() + OPOSUM_WIDTH / 2, eagle->GetY());
+		Tile* tileRight = map->PointToTile(eagle->GetX() + EAGLE_WIDTH / 2, eagle->GetY());
 
 		if (tileRight && tileRight->Collidable()) {
 			eagle->SetX(eagle->GetX() - EAGLE_FLYING_SPEED * deltaTime);

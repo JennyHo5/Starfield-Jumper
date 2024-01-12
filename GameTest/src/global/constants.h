@@ -28,10 +28,10 @@ const float PLAYER_HEIGHT = 80.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 
-const float OPOSUM_WIDTH = 72.0f;
-const float OPOSUM_HEIGHT = 56.0f;
-const float OPOSUM_RUNNING_SPEED = 0.1f;
-const int OPOSUM_MOVING_DURATION = 2000;
+const float SLIME_WIDTH = 65.0f;
+const float SLIME_HEIGHT = 40.0f;
+const float SLIME_RUNNING_SPEED = 0.1f;
+const int SLIME_MOVING_DURATION = 2000;
 
 const float EAGLE_WIDTH = 64.0f;
 const float EAGLE_HEIGHT = 64.0f;
@@ -54,9 +54,9 @@ enum class State {
 	JUMP,
 	FALLING,
 	DEAD,
-	// Oposum States
-	OPOSUM_RUNNING,
-	OPOSUM_CHASING,
+	// SLIME States
+	SLIME_RUNNING,
+	SLIME_CHASING,
 	// Eagle states
 	EAGLE_FLYING
 };
