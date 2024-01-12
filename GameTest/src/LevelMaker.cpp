@@ -27,24 +27,24 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 		else {
 			for (int y = 0; y < groundHeight - 1; y++) {
-				mapData[x][y] = TILE_ID_GROUND;
+				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
 			}
-			mapData[x][groundHeight - 1] = TILE_ID_TOP;
+			mapData[x][groundHeight - 1] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];
 		}
 
 		// Chance to generate a pillar
 		int pillarHeight = 2;
 		if (GetRandom(8) == 1) {
 			for (int y = 0; y < groundHeight - 1 + pillarHeight; y++) {
-				mapData[x][y] = TILE_ID_GROUND;
+				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
 			}
-			mapData[x][groundHeight - 1 + pillarHeight] = TILE_ID_TOP;
+			mapData[x][groundHeight - 1 + pillarHeight] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];;
 		}
 		// Chance to generate a grass or rock
-		else if (GetRandom(3) == 1) {
+		else if (GetRandom(2) == 1) {
 			if (mapData[x][0] != TILE_ID_EMPTY) // Is the column is not empty column
 			{
-				mapData[x][groundHeight] = TILE_ID_GRASS[GetRandom(GRASSES_NUMBER) - 1];
+				mapData[x][groundHeight] = TILE_ID_DECOR[GetRandom(DECOR_NUMBER) - 1];
 			}
 		}
 	}
@@ -53,14 +53,6 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	// For 0st column
 	// if 0st column is a pillar, change it to pillar style
 
-		for (int y = 0; y < height; y++) {
-			if (mapData[0][y] == TILE_ID_GROUND) {
-				mapData[0][y] = TILE_ID_LEFT;
-			}
-			if (mapData[0][y] == TILE_ID_TOP) {
-				mapData[0][y] = TILE_ID_TOPLEFT;
-			}
-		}
 
 	// For 1 to width -1 column
 	for (int x = 1; x < width; x++) {

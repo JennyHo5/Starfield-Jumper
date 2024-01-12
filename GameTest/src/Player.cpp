@@ -49,7 +49,6 @@ void Player::CheckRightCollisions() {
 	// Check if player reachs the right of the map
 	if (x >= MAP_WIDTH * (TILE_SIZE - 1) - width / 2) {
 		x = MAP_WIDTH * (TILE_SIZE - 1) - width / 2;
-		StateMachineManager::GetInstance()->ChangeState(State::START);
 	}
 
 

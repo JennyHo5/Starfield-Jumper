@@ -21,5 +21,10 @@ void Tile::Render() {
 }
 
 bool Tile::Collidable() const {
-	return (id == TILE_ID_TOP || id == TILE_ID_TOPLEFT || id == TILE_ID_PILLAR_TOP);
+	for (size_t i = 0; i < COLLIDABLE_SIZE; ++i) {
+		if (id == COLLIDABLE[i]) {
+			return true;
+		}
+	}
+	return false;
 }

@@ -11,14 +11,17 @@ const float BACKGROUND_LOOPING_POINT = BACKGROUND_WIDTH / 2;
 
 const float TILE_SIZE = 64.0f;
 const int TILE_ID_EMPTY = 22;
-const int TILE_ID_GROUND = 179;
-const int TILE_ID_TOP = 170;
-const int TILE_ID_GRASS[] = {72, 73};
-const int GRASSES_NUMBER = 2;
+const int TILE_ID_GROUND[] = { 162, 179 };
+const int GROUND_NUMBER = 2;
+const int TILE_ID_TOP[] = {166, 167};
+const int TOPS_NUMBER = 2;
+const int TILE_ID_DECOR[] = {72, 73, 94};
+const int DECOR_NUMBER = 3;
 const int TILE_ID_LEFT = 162;
-const int TILE_ID_TOPLEFT = 180;
+const int TILE_ID_TOPLEFT = 172;
 const int TILE_ID_PILLAR_TOP = 144;
-const int TILE_ID_PILLAR_GROUND = 162;
+const int COLLIDABLE[] = { 166, 167, 172 };
+const int COLLIDABLE_SIZE = 3;
 
 const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
