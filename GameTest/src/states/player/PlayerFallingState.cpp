@@ -44,8 +44,12 @@ void PlayerFallingState::Update(float deltaTime) {
 		player->CheckRightCollisions();
 	}
 
-	if (App::IsKeyPressed(VK_CONTROL)) {
-		player->ChangeState(State::ATTACK);
+	// Check if we've collided with any entities and kill them if so
+	for (Entity* e : *player->GetGameLevel()->GetEntities()) {
+		if (player->InAttackRate(e)) {
+			printf("Player attacked enemy\n");
+			player->GetGameLevel()->RemoveEntity(e);
+		}
 	}
 
 }

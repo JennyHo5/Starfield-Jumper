@@ -28,7 +28,6 @@
     <ClCompile Include="src\states\game\PlayState.cpp" />
     <ClCompile Include="src\states\game\StartState.cpp" />
     <ClCompile Include="src\states\oposum\OposumRunningState.cpp" />
-    <ClCompile Include="src\states\player\PlayerAttackState.cpp" />
     <ClCompile Include="src\states\player\PlayerDeadState.cpp" />
     <ClCompile Include="src\states\player\PlayerFallingState.cpp" />
     <ClCompile Include="src\states\player\PlayerIdleState.cpp" />
@@ -78,7 +77,6 @@
     <ClInclude Include="src\states\game\PlayState.h" />
     <ClInclude Include="src\states\game\StartState.h" />
     <ClInclude Include="src\states\oposum\OposumRunningState.h" />
-    <ClInclude Include="src\states\player\PlayerAttackState.h" />
     <ClInclude Include="src\states\player\PlayerDeadState.h" />
     <ClInclude Include="src\states\player\PlayerFallingState.h" />
     <ClInclude Include="src\states\player\PlayerIdleState.h" />

@@ -12,13 +12,11 @@ Player::Player(float x, float y, GameLevel& level):
 	sprite->CreateAnimation(WALKING, ANIMATION_SPEED, { 16, 17, 18, 19, 20, 21, 22, 23 });
 	sprite->CreateAnimation(JUMP, ANIMATION_SPEED * 3, {24, 25, 26, 27, 28, 29, 30, 31});
 	sprite->CreateAnimation(FALLING, ANIMATION_SPEED * 3, { 32, 33, 34, 35, 36, 37, 38, 39 });
-	sprite->CreateAnimation(ATTACK, ANIMATION_SPEED, { 8, 9, 10, 11, 12, 13});
 	sprite->CreateAnimation(DEAD, ANIMATION_SPEED, { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51});
 	stateMachine.AddState(State::IDLE, new PlayerIdleState(this));
 	stateMachine.AddState(State::WALKING, new PlayerWalkingState(this));
 	stateMachine.AddState(State::JUMP, new PlayerJumpState(this));
 	stateMachine.AddState(State::FALLING, new PlayerFallingState(this));
-	stateMachine.AddState(State::ATTACK, new PlayerAttackState(this));
 	stateMachine.AddState(State::DEAD, new PlayerDeadState(this));
 	stateMachine.ChangeState(State::FALLING);
 }

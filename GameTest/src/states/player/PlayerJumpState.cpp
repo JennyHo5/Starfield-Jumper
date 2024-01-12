@@ -31,10 +31,6 @@ void PlayerJumpState::Update(float deltaTime) {
 		player->CheckRightCollisions();
 	}
 
-	if (App::IsKeyPressed(VK_CONTROL)) {
-		player->ChangeState(State::ATTACK);
-	}
-
 	// Check if collide with enemies
 	for (Entity* e : *player->GetGameLevel()->GetEntities()) {
 		if (e->Collides(player)) {

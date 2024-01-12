@@ -29,10 +29,6 @@ void PlayerWalkingState::Update(float deltaTime) {
 		}
 	}
 
-	if (App::IsKeyPressed(VK_CONTROL)) {
-		player->ChangeState(State::ATTACK);
-	}
-
 	if (App::IsKeyPressed(VK_SPACE)) {
 		player->ChangeState(State::JUMP);
 	}

@@ -24,7 +24,7 @@ const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
 
 const float PLAYER_WIDTH = 43.0f;
-const float PLAYER_HEIGHT = 128.0f;
+const float PLAYER_HEIGHT = 120.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 
@@ -53,7 +53,6 @@ enum class State {
 	WALKING,
 	JUMP,
 	FALLING,
-	ATTACK,
 	DEAD,
 	// Oposum States
 	OPOSUM_RUNNING,

@@ -19,7 +19,6 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\eagle\EagleFlyingStat
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\PlayState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\StartState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\StartState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\oposum\OposumRunningState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\OposumRunningState.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerAttackState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerAttackState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerDeadState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerDeadState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerFallingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerFallingState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\player\PlayerIdleState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayerIdleState.obj

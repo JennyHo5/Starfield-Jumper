@@ -4,7 +4,6 @@
 #include "states/player/PlayerWalkingState.h"
 #include "states/player/PlayerJumpState.h"
 #include "states/player/PlayerFallingState.h"
-#include "states/player/PlayerAttackState.h"
 #include "states/player/PlayerDeadState.h"
 
 
