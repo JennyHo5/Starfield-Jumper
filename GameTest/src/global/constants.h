@@ -6,9 +6,11 @@ const float WINDOW_HEIGHT = APP_INIT_WINDOW_HEIGHT;
 const float BACKGROUND_WIDTH = 2476.0f;
 const float BACKGROUND_HEIGHT = 774.0f;
 
+// Camera
 const float CAMERA_SCROLL_SPEED = 0.2f;
 const float BACKGROUND_LOOPING_POINT = BACKGROUND_WIDTH / 2;
 
+// Tile map
 const float TILE_SIZE = 64.0f;
 const int TILE_ID_EMPTY = 22;
 const int TILE_ID_GROUND[] = { 162, 179 };
@@ -25,8 +27,9 @@ const int COLLIDABLE_SIZE = 3;
 
 const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
-const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
+const int GROUND_HEIGHT = MAP_HEIGHT * 2 / 5;
 
+// entities
 const float PLAYER_WIDTH = 50.0f;
 const float PLAYER_HEIGHT = 80.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
@@ -34,7 +37,7 @@ const float PLAYER_JUMP_VELOCITY = 0.4f;
 
 const float SLIME_WIDTH = 65.0f;
 const float SLIME_HEIGHT = 40.0f;
-const float SLIME_RUNNING_SPEED = 0.1f;
+const float SLIME_RUNNING_SPEED = 0.15f;
 const int SLIME_MOVING_DURATION = 2000;
 
 const float EAGLE_WIDTH = 64.0f;
@@ -42,15 +45,20 @@ const float EAGLE_HEIGHT = 64.0f;
 const float EAGLE_FLYING_SPEED = 0.15f;
 const int EAGLE_MOVING_DURATION = 4000;
 
+// decors
 const float ROCK_WIDTH = TILE_SIZE * 2;
 const float ROCK_HEIGHT = 80.0f;
+const float SMALL_TREE_WIDTH = 256.0f;
+const float SMALL_TREE_HEIGHT = 256.0f;
 
+// Animation
 const float ANIMATION_SPEED = 0.1f;
-
-const float GRAVITY = -0.016f;
-
 const int UPDATE_CALLS_PER_FRAME = 3;
 
+// Physics
+const float GRAVITY = -0.016f;
+
+// States
 enum class State {
 	// Game States
 	START,

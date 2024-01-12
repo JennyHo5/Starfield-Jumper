@@ -66,13 +66,27 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 
 void LevelMaker::GenerateDecors() {
 	for (int x = 1; x < width; x++) {
-		// if there is a solid top with 2 tile width
-		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY 
-			&& mapData[x][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT] == TILE_ID_EMPTY) {
-			if(GetRandom(4) == 1)
+		// if there is a solid top with 2 tile width, might generate a rock
+		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY
+			&& mapData[x][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT] == TILE_ID_EMPTY)
+			{
+			if(GetRandom(5) == 1)
 			{
 				GameObject* newRock = new GameObject(TILE_SIZE * (x + 1 / 2), TILE_SIZE * (GROUND_HEIGHT + 1), ROCK_WIDTH, ROCK_HEIGHT, App::CreateSprite(".\\graphics\\decor\\rock.png", 1, 1));
 				gameObjects->push_back(newRock);
+			}
+		}
+	}
+
+	for (int x = 3; x < width; x++) {
+		// if there is a solid top with 4 tile width, might generate a small tree
+		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 2][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 3][GROUND_HEIGHT - 1] != TILE_ID_EMPTY
+			&& mapData[x][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 2][GROUND_HEIGHT] == TILE_ID_EMPTY && mapData[x - 3][GROUND_HEIGHT] == TILE_ID_EMPTY)
+		{
+			if (GetRandom(2) == 1)
+			{
+				GameObject* newTree = new GameObject(TILE_SIZE * (x - 2 + 1 + 1 / 2), TILE_SIZE * GROUND_HEIGHT + SMALL_TREE_HEIGHT / 2, SMALL_TREE_WIDTH, SMALL_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\small-tree.png", 1, 1));
+				gameObjects->push_back(newTree);
 			}
 		}
 	}
