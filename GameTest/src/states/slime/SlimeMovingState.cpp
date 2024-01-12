@@ -11,7 +11,10 @@ SlimeMovingState::SlimeMovingState(TileMap* tm, Player* p, Slime* o):
 	slime->SetDirection(movingDirection);
 	movingDuration = GetRandom(SLIME_MOVING_DURATION);
 	movingTimer = 0;
-	o->GetSprite()->SetAnimation(SLIME_MOVING);
+}
+
+void SlimeMovingState::Enter() {
+	slime->GetSprite()->SetAnimation(SLIME_MOVING);
 }
 
 void SlimeMovingState::Update(float deltaTime) {
@@ -63,4 +66,12 @@ void SlimeMovingState::Update(float deltaTime) {
 			movingTimer = 0;
 		}
 	}
+
+	// Calculate difference between slime and player on X axis, only chase if <= 5 tiles
+	int diff = std::abs(player->GetX() - slime->GetX());
+
+	if (diff < TILE_SIZE * 5) {
+		slime->ChangeState(State::SLIME_CHASING);
+	}
+
 }

@@ -6,11 +6,11 @@
 
 class Slime;
 
-class SlimeMovingState :
+class SlimeChasingState :
     public BaseState
 {
 public:
-    SlimeMovingState(TileMap*, Player*, Slime *);
+    SlimeChasingState(TileMap*, Player*, Slime*);
     void Enter() override;
     void Update(float deltaTime) override;
 
@@ -18,8 +18,5 @@ private:
     TileMap* map;
     Player* player;
     Slime* slime;
-    bool movingDirection; // 0 = left, 1 = right
-    int movingDuration;
-    float movingTimer;
 };
 

@@ -57,6 +57,7 @@ enum class State {
 	// SLIME States
 	SLIME_MOVING,
 	SLIME_DEAD,
+	SLIME_CHASING,
 	// Eagle states
 	EAGLE_FLYING
 };

@@ -75,6 +75,7 @@ void PlayState::SpawnEnemies() {
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
 					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player, slime));
 					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
 					gameLevel->AddEntity(slime);
 				}
@@ -83,19 +84,19 @@ void PlayState::SpawnEnemies() {
 	}
 
 	// Spawn eagles
-	for (int x = 1; x < MAP_WIDTH; x++) {
-		for (int y = MAP_HEIGHT / 2 - 1; y < MAP_HEIGHT - 3; y++) {
-			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
-				if (GetRandom(20) == 1) {
-					printf("Added Eagle at column %d\n", x);
-					Eagle* eagle = new Eagle((x + 1) * TILE_SIZE - EAGLE_WIDTH / 2, (y + 1) * TILE_SIZE + EAGLE_HEIGHT / 2, *gameLevel);
-					eagle->GetStateMachine()->AddState(State::EAGLE_FLYING, new EagleFlyingState(gameLevel->GetTileMap(), player, eagle));
-					eagle->GetStateMachine()->ChangeState(State::EAGLE_FLYING);
-					gameLevel->AddEntity(eagle);
-				}
-			}
-		}
-	}
+	//for (int x = 1; x < MAP_WIDTH; x++) {
+	//	for (int y = MAP_HEIGHT / 2 - 1; y < MAP_HEIGHT - 3; y++) {
+	//		if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
+	//			if (GetRandom(20) == 1) {
+	//				printf("Added Eagle at column %d\n", x);
+	//				Eagle* eagle = new Eagle((x + 1) * TILE_SIZE - EAGLE_WIDTH / 2, (y + 1) * TILE_SIZE + EAGLE_HEIGHT / 2, *gameLevel);
+	//				eagle->GetStateMachine()->AddState(State::EAGLE_FLYING, new EagleFlyingState(gameLevel->GetTileMap(), player, eagle));
+	//				eagle->GetStateMachine()->ChangeState(State::EAGLE_FLYING);
+	//				gameLevel->AddEntity(eagle);
+	//			}
+	//		}
+	//	}
+	//}
 
 }
 

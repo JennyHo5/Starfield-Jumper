@@ -188,6 +188,7 @@
     <ClInclude Include="lib\stb_image\stb_image.h" />
     <ClInclude Include="lib\stdafx.h" />
     <ClInclude Include="lib\targetver.h" />
+    <ClInclude Include="src\states\slime\SlimeChasingState.h" />
     <ClInclude Include="src\states\slime\SlimeDeadState.h" />
     <ClInclude Include="src\enemy\Eagle.h" />
     <ClInclude Include="src\enemy\Slime.h" />
@@ -227,6 +228,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\states\slime\SlimeChasingState.cpp" />
     <ClCompile Include="src\states\slime\SlimeDeadState.cpp" />
     <ClCompile Include="src\enemy\Eagle.cpp" />
     <ClCompile Include="src\enemy\Slime.cpp" />
