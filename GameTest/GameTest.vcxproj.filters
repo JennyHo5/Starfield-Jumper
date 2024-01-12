@@ -21,6 +21,27 @@
     <ClCompile Include="lib\stb_image\stb_image.cpp">
       <Filter>stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\enemy\Eagle.cpp" />
+    <ClCompile Include="src\enemy\Oposum.cpp" />
+    <ClCompile Include="src\manager\StateMachineManager.cpp" />
+    <ClCompile Include="src\states\eagle\EagleFlyingState.cpp" />
+    <ClCompile Include="src\states\game\PlayState.cpp" />
+    <ClCompile Include="src\states\game\StartState.cpp" />
+    <ClCompile Include="src\states\oposum\OposumRunningState.cpp" />
+    <ClCompile Include="src\states\player\PlayerAttackState.cpp" />
+    <ClCompile Include="src\states\player\PlayerDeadState.cpp" />
+    <ClCompile Include="src\states\player\PlayerFallingState.cpp" />
+    <ClCompile Include="src\states\player\PlayerIdleState.cpp" />
+    <ClCompile Include="src\states\player\PlayerJumpState.cpp" />
+    <ClCompile Include="src\states\player\PlayerWalkingState.cpp" />
+    <ClCompile Include="src\states\BaseState.cpp" />
+    <ClCompile Include="src\tilesystem\Tile.cpp" />
+    <ClCompile Include="src\tilesystem\TileMap.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\GameLevel.cpp" />
+    <ClCompile Include="src\LevelMaker.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\stdafx.h" />
@@ -48,6 +69,29 @@
     <ClInclude Include="lib\stb_image\stb_image.h">
       <Filter>stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\enemy\Eagle.h" />
+    <ClInclude Include="src\enemy\Oposum.h" />
+    <ClInclude Include="src\global\constants.h" />
+    <ClInclude Include="src\global\Util.h" />
+    <ClInclude Include="src\manager\StateMachineManager.h" />
+    <ClInclude Include="src\states\eagle\EagleFlyingState.h" />
+    <ClInclude Include="src\states\game\PlayState.h" />
+    <ClInclude Include="src\states\game\StartState.h" />
+    <ClInclude Include="src\states\oposum\OposumRunningState.h" />
+    <ClInclude Include="src\states\player\PlayerAttackState.h" />
+    <ClInclude Include="src\states\player\PlayerDeadState.h" />
+    <ClInclude Include="src\states\player\PlayerFallingState.h" />
+    <ClInclude Include="src\states\player\PlayerIdleState.h" />
+    <ClInclude Include="src\states\player\PlayerJumpState.h" />
+    <ClInclude Include="src\states\player\PlayerWalkingState.h" />
+    <ClInclude Include="src\states\BaseState.h" />
+    <ClInclude Include="src\tilesystem\Tile.h" />
+    <ClInclude Include="src\tilesystem\TileMap.h" />
+    <ClInclude Include="src\Entity.h" />
+    <ClInclude Include="src\GameLevel.h" />
+    <ClInclude Include="src\LevelMaker.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="stb_image">
@@ -61,5 +105,24 @@
     <Text Include="ReadMe.txt">
       <Filter>API</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="graphics\char_blue.png" />
+    <Image Include="graphics\eagle.png" />
+    <Image Include="graphics\oposum.png" />
+    <Image Include="graphics\tileset.png" />
+    <Image Include="graphics\tileset_full.png" />
+    <Image Include="graphics\tileset_long.png" />
+    <Image Include="graphics\tileset_og.png" />
+    <Image Include="graphics\decorations\grass_1.png" />
+    <Image Include="graphics\decorations\grass_2.png" />
+    <Image Include="graphics\decorations\grass_3.png" />
+    <Image Include="graphics\background\background_layer_1.png" />
+    <Image Include="graphics\background\background_layer_2.png" />
+    <Image Include="graphics\background\background_layer_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\background-music.wav" />
+    <Media Include="sounds\sword-unsheathe.wav" />
   </ItemGroup>
 </Project>
