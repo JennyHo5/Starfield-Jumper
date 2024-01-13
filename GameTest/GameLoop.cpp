@@ -5,15 +5,15 @@
 #include "src/StateMachine.h"
 #include "src/states/game/PlayState.h"
 #include "src/states/game/StartState.h"
-#include "src/GameStateMachine.h"
+#include "src/Game.h"
 
 // State machine for the whole game
-StateMachine* gStateMachine = GameStateMachine::GetInstance();
+StateMachine* gStateMachine = Game::GetInstance();
 
 void Init()
 {
-	AllocConsole();
-	freopen("CONOUT$", "w", stdout);
+	//AllocConsole();
+	//freopen("CONOUT$", "w", stdout);
 
 	// Initialize state machine for the game
 	gStateMachine->AddState(State::START, std::make_unique<StartState>());

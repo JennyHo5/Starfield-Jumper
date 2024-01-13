@@ -2,9 +2,9 @@
 #include "app/app.h"
 #include "global/constants.h"
 #include "global/Util.h"
-#include "GameStateMachine.h"
+#include "Game.h"
 
-class GameStateMachine;
+class Game;
 
 class BaseState
 {

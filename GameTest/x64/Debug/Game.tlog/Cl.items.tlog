@@ -6,7 +6,7 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\main.cpp;C:\Users\Jiayu\
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleController.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SimpleController.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleSound.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SimpleSound.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\App\SimpleSprite.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SimpleSprite.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\Game.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Game.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\GameLoop.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\GameLoop.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stb_image\stb_image.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stb_image.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\lib\stdafx.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\stdafx.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\slime\SlimeChasingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\SlimeChasingState.obj
@@ -16,7 +16,7 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\enemy\Slime.cpp;C:\Users\Jia
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Entity.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Entity.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\GameLevel.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\GameLevel.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\LevelMaker.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\LevelMaker.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\GameStateMachine.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\GameStateMachine.obj
+C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Game.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Game.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Player.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Player.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\StateMachine.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\StateMachine.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\bat\BatFlyingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\BatFlyingState.obj

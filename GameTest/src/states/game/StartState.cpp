@@ -22,7 +22,7 @@ StartState::~StartState() {
 
 void StartState::Update(float deltaTime) {
 	if (App::IsKeyPressed(VK_SPACE) || App::IsKeyPressed(VK_RETURN)) {
-		GameStateMachine::GetInstance()->ChangeState(State::PLAY);
+		Game::GetInstance()->ChangeState(State::PLAY);
 	}
 }
 

@@ -11,5 +11,5 @@ void PlayerDeadState::Enter() {
 
 void PlayerDeadState::Update(float deltaTime) {
 	if (App::IsKeyPressed(0x52))
-		GameStateMachine::GetInstance()->ChangeState(State::START);
+		Game::GetInstance()->ChangeState(State::START);
 }
