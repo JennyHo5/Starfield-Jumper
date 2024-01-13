@@ -31,7 +31,6 @@
     <ClCompile Include="src\states\player\PlayerIdleState.cpp" />
     <ClCompile Include="src\states\player\PlayerJumpState.cpp" />
     <ClCompile Include="src\states\player\PlayerWalkingState.cpp" />
-    <ClCompile Include="src\states\BaseState.cpp" />
     <ClCompile Include="src\tilesystem\Tile.cpp" />
     <ClCompile Include="src\tilesystem\TileMap.cpp" />
     <ClCompile Include="src\Entity.cpp" />

@@ -242,7 +242,6 @@
     <ClCompile Include="src\GameStateMachine.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\StateMachine.cpp" />
-    <ClCompile Include="src\states\BaseState.cpp" />
     <ClCompile Include="src\states\bat\BatFlyingState.cpp" />
     <ClCompile Include="src\states\game\PlayState.cpp" />
     <ClCompile Include="src\states\game\StartState.cpp" />

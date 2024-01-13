@@ -19,7 +19,6 @@ C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\LevelMaker.cpp;C:\Users\Jiay
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\GameStateMachine.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\GameStateMachine.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\Player.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\Player.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\StateMachine.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\StateMachine.obj
-C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\BaseState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\BaseState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\bat\BatFlyingState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\BatFlyingState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\PlayState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\PlayState.obj
 C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\src\states\game\StartState.cpp;C:\Users\Jiayu\Desktop\DAU\DAU2024\API\GameTest\x64\Debug\StartState.obj
