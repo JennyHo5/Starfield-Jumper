@@ -31,7 +31,7 @@ private:
 
     LevelMaker levelMaker;
     GameLevel* gameLevel;
-    Player* player;
+    std::unique_ptr<Player> player;
 
     // Move every sprite in the scene by -camX
     void Translate();
