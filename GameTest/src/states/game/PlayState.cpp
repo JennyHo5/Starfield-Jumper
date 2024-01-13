@@ -73,51 +73,51 @@ void PlayState::Render() {
 }
 
 void PlayState::SpawnEnemies() {
-	//const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
+	const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 
-	//// Spawn slimes
-	//for (int x = 1; x < MAP_WIDTH; x++) {
-	//	for (int y = 0; y < MAP_HEIGHT; y++) {
-	//		if ((*tiles)[x][y]->Collidable()) {
-	//			if (GetRandom(5) == 1) {
-	//				printf("Added slime at column %d's ground\n", x);
-	//				Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-	//				slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
-	//				slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
-	//				slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player, slime));
-	//				slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
-	//				gameLevel->AddEntity(slime);
-	//			}
-	//		}
+	// Spawn slimes
+	for (int x = 1; x < MAP_WIDTH; x++) {
+		for (int y = 0; y < MAP_HEIGHT; y++) {
+			if ((*tiles)[x][y]->Collidable()) {
+				if (GetRandom(5) == 1) {
+					printf("Added slime at column %d's ground\n", x);
+					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime));
+					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
+					gameLevel->AddEntity(slime);
+				}
+			}
 
-	//		if ((*tiles)[x][y]->IsPlatform()) {
-	//			if (GetRandom(10) == 1) {
-	//				printf("Added slime at column %d's platform\n", x);
-	//				Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-	//				slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
-	//				slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
-	//				slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player, slime));
-	//				slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
-	//				gameLevel->AddEntity(slime);
-	//			}
-	//		}
-	//	}
-	//}
+			if ((*tiles)[x][y]->IsPlatform()) {
+				if (GetRandom(10) == 1) {
+					printf("Added slime at column %d's platform\n", x);
+					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime));
+					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
+					gameLevel->AddEntity(slime);
+				}
+			}
+		}
+	}
 
-	//// Spawn eagles
-	//for (int x = 1; x < MAP_WIDTH; x++) {
-	//	for (int y = MAP_HEIGHT * 2/3; y < MAP_HEIGHT; y++) {
-	//		if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
-	//			if (GetRandom(20) == 1) {
-	//				printf("Added bat at column %d\n", x);
-	//				Bat* bat = new Bat((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
-	//				bat->GetStateMachine()->AddState(State::BAT_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player, bat));
-	//				bat->GetStateMachine()->ChangeState(State::BAT_FLYING);
-	//				gameLevel->AddEntity(bat);
-	//			}
-	//		}
-	//	}
-	//}
+	// Spawn eagles
+	for (int x = 1; x < MAP_WIDTH; x++) {
+		for (int y = MAP_HEIGHT * 2/3; y < MAP_HEIGHT; y++) {
+			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
+				if (GetRandom(20) == 1) {
+					printf("Added bat at column %d\n", x);
+					Bat* bat = new Bat((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
+					bat->GetStateMachine()->AddState(State::BAT_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player.get(), bat));
+					bat->GetStateMachine()->ChangeState(State::BAT_FLYING);
+					gameLevel->AddEntity(bat);
+				}
+			}
+		}
+	}
 
 }
 
