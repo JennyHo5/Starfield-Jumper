@@ -18,7 +18,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to just be emptyness for the column
-		if (GetRandom(4) == 1) {
+		if (GetRandom(3) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_EMPTY;
 			}
@@ -52,7 +52,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		// For a continuing empty space with 3 tile width, there's a chance to generate a platform
 		for (int x = 3; x < width; x++) {
 			if (mapData[x][y] == TILE_ID_EMPTY && mapData[x - 1][y] == TILE_ID_EMPTY && mapData[x - 2][y] == TILE_ID_EMPTY) {
-				if (GetRandom(15) == 1) {
+				if (GetRandom(10) == 1) {
 					mapData[x][y] = TILE_ID_PLATFORM_RIGHT;
 					mapData[x - 1][y] = TILE_ID_PLATFORM_MIDDLE;
 					mapData[x - 2][y] = TILE_ID_PLATFORM_LEFT;

@@ -11,6 +11,7 @@ public:
 	PlayerWalkingState(Player* player);
 	void Enter() override;
 	void Update(float deltaTime) override;
+	void Exit() override;
 
 private:
 	Player* player;

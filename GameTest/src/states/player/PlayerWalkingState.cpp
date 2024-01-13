@@ -6,6 +6,7 @@ PlayerWalkingState::PlayerWalkingState(Player* player) : player(player) {
 
 void PlayerWalkingState::Enter() {
 	player->SetAnimation(PlayerAnimation::WALKING);
+	App::PlaySoundW(".\\sounds\\stepdirt.wav", true);
 }
 
 void PlayerWalkingState::Update(float deltaTime) {
@@ -42,6 +43,8 @@ void PlayerWalkingState::Update(float deltaTime) {
 			break;
 		}
 	}
+}
 
-
+void PlayerWalkingState::Exit() {
+	App::StopSound(".\\sounds\\stepdirt.wav");
 }

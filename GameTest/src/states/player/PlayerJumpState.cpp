@@ -7,6 +7,7 @@ PlayerJumpState::PlayerJumpState(Player* p) : player(p) {
 void PlayerJumpState::Enter() {
 	player->SetAnimation(PlayerAnimation::JUMP);
 	player->SetDy(PLAYER_JUMP_VELOCITY);
+	App::PlaySoundW(".\\sounds\\jumpland.wav");
 }
 
 void PlayerJumpState::Update(float deltaTime) {
