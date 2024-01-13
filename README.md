@@ -71,5 +71,5 @@ Sound effects:
 
 Background music:
 
-- https://opengameart.org/content/platformer-game-music-pack
+- https://opengameart.org/content/enchanted-festival
 

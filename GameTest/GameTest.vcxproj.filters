@@ -21,9 +21,9 @@
     <ClCompile Include="lib\stb_image\stb_image.cpp">
       <Filter>stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\enemy\Eagle.cpp" />
+    <ClCompile Include="src\enemy\Bat.cpp" />
     <ClCompile Include="src\manager\StateMachineManager.cpp" />
-    <ClCompile Include="src\states\eagle\EagleFlyingState.cpp" />
+    <ClCompile Include="src\states\bat\BatFlyingState.cpp" />
     <ClCompile Include="src\states\game\PlayState.cpp" />
     <ClCompile Include="src\states\game\StartState.cpp" />
     <ClCompile Include="src\states\player\PlayerDeadState.cpp" />
@@ -73,11 +73,11 @@
     <ClInclude Include="lib\stb_image\stb_image.h">
       <Filter>stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\enemy\Eagle.h" />
+    <ClInclude Include="src\enemy\Bat.h" />
     <ClInclude Include="src\global\constants.h" />
     <ClInclude Include="src\global\Util.h" />
     <ClInclude Include="src\manager\StateMachineManager.h" />
-    <ClInclude Include="src\states\eagle\EagleFlyingState.h" />
+    <ClInclude Include="src\states\bat\BatFlyingState.h" />
     <ClInclude Include="src\states\game\PlayState.h" />
     <ClInclude Include="src\states\game\StartState.h" />
     <ClInclude Include="src\states\player\PlayerDeadState.h" />

@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "LevelMaker.h"
 #include "enemy/Slime.h"
-#include "enemy/Eagle.h"
+#include "enemy/Bat.h"
 
 class PlayState: public BaseState
 {

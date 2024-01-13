@@ -45,10 +45,10 @@ const float SLIME_HEIGHT = 40.0f;
 const float SLIME_RUNNING_SPEED = 0.1f;
 const int SLIME_MOVING_DURATION = 2000;
 
-const float EAGLE_WIDTH = 64.0f;
-const float EAGLE_HEIGHT = 64.0f;
-const float EAGLE_FLYING_SPEED = 0.15f;
-const int EAGLE_MOVING_DURATION = 4000;
+const float BAT_WIDTH = 64.0f;
+const float BAT_HEIGHT = 32.0f;
+const float BAT_FLYING_SPEED = 0.15f;
+const int BAT_MOVING_DURATION = 4000;
 
 // decors
 const float ROCK_WIDTH = TILE_SIZE * 2;

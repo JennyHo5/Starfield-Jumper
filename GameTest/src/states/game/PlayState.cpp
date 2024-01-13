@@ -18,6 +18,7 @@ PlayState::~PlayState() {
 
 void PlayState::Enter() {
 	printf("Entering PlayState\n");
+	App::PlaySoundW(".\\sounds\\bgm.wav", true);
 
 	// Generate new gamelevel and player
 	gameLevel = levelMaker.Generate();
@@ -79,7 +80,7 @@ void PlayState::SpawnEnemies() {
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
 			if ((*tiles)[x][y]->Collidable()) {
-				if (GetRandom(3) == 1) {
+				if (GetRandom(10) == 1) {
 					printf("Added slime at column %d's ground\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
@@ -91,7 +92,7 @@ void PlayState::SpawnEnemies() {
 			}
 
 			if ((*tiles)[x][y]->IsPlatform()) {
-				if (GetRandom(6) == 1) {
+				if (GetRandom(20) == 1) {
 					printf("Added slime at column %d's platform\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
@@ -105,19 +106,19 @@ void PlayState::SpawnEnemies() {
 	}
 
 	// Spawn eagles
-	//for (int x = 1; x < MAP_WIDTH; x++) {
-	//	for (int y = MAP_HEIGHT / 2 - 1; y < MAP_HEIGHT - 3; y++) {
-	//		if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
-	//			if (GetRandom(20) == 1) {
-	//				printf("Added Eagle at column %d\n", x);
-	//				Eagle* eagle = new Eagle((x + 1) * TILE_SIZE - EAGLE_WIDTH / 2, (y + 1) * TILE_SIZE + EAGLE_HEIGHT / 2, *gameLevel);
-	//				eagle->GetStateMachine()->AddState(State::EAGLE_FLYING, new EagleFlyingState(gameLevel->GetTileMap(), player, eagle));
-	//				eagle->GetStateMachine()->ChangeState(State::EAGLE_FLYING);
-	//				gameLevel->AddEntity(eagle);
-	//			}
-	//		}
-	//	}
-	//}
+	for (int x = 1; x < MAP_WIDTH; x++) {
+		for (int y = MAP_HEIGHT / 2 - 1; y < MAP_HEIGHT - 3; y++) {
+			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
+				if (GetRandom(20) == 1) {
+					printf("Added Eagle at column %d\n", x);
+					Bat* bat = new Bat((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
+					bat->GetStateMachine()->AddState(State::EAGLE_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player, bat));
+					bat->GetStateMachine()->ChangeState(State::EAGLE_FLYING);
+					gameLevel->AddEntity(bat);
+				}
+			}
+		}
+	}
 
 }
 
@@ -166,7 +167,7 @@ void PlayState::Translate() {
 
 void PlayState::Exit() {
 	printf("Exiting Play State\n");
-	App::StopSound(".\\sounds\\background-music.wav");
+	App::StopSound(".\\sounds\\bgm.wav");
 	delete player;
 	player = nullptr;
 	delete gameLevel;
