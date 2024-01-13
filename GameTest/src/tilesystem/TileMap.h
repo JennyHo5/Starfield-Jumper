@@ -11,9 +11,9 @@ public:
     void loadMap(const std::vector<std::vector<int>>& mapData);
     void Render();
 
-    std::vector<std::vector<Tile*>>* GetTiles() { return &tiles; }
+    const std::vector<std::vector<Tile*>>* GetTiles() const { return &tiles; }
 
-    Tile* PointToTile(float x, float y);
+    Tile* PointToTile(float x, float y) const;
 
 private:
     int width;

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SlimeChasingState.h"
 
-SlimeChasingState::SlimeChasingState(TileMap* tm, Player* p, Slime* o) :
+SlimeChasingState::SlimeChasingState(const TileMap* tm, Player* p, Slime* o) :
 	map(tm), player(p), slime(o)
 {
 }

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "BatFlyingState.h"
 
-BatFlyingState::BatFlyingState(TileMap* tm, Player* p, Bat* e) :
+BatFlyingState::BatFlyingState(const TileMap* tm, Player* p, Bat* e) :
 	map(tm), player(p), bat(e), movingDirection(0)
 {
 	if (GetRandom(2) == 1) {

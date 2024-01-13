@@ -74,7 +74,7 @@ void PlayState::Render() {
 }
 
 void PlayState::SpawnEnemies() {
-	std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
+	const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 
 	// Spawn slimes
 	for (int x = 1; x < MAP_WIDTH; x++) {
@@ -144,7 +144,7 @@ void PlayState::Translate() {
 	player->GetSprite()->SetPosition(player->GetX() - floor(camX), player->GetY());
 
 	// TileMap
-	std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
+	const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 	for (int y = 0; y < MAP_HEIGHT; y++) {
 		for (int x = 0; x < MAP_WIDTH; x++) {
 			Tile* t = (*tiles)[x][y];

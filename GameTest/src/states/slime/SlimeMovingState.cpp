@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SlimeMovingState.h"
 
-SlimeMovingState::SlimeMovingState(TileMap* tm, Player* p, Slime* o):
+SlimeMovingState::SlimeMovingState(const TileMap* tm, Player* p, Slime* o):
 	map(tm), player(p), slime(o), movingDirection(0)
 {
 	if (GetRandom(2) == 1) {

@@ -19,12 +19,12 @@ public:
     void AddGameObject(GameObject*);
     void RemoveGameObject(GameObject*);
 
-    TileMap* GetTileMap() const { return tileMap; }
+    const TileMap* GetTileMap() const { return tileMap.get(); }
     std::vector<Entity*>* GetEntities() const { return entities; }
     std::vector<GameObject*>* GetGameObjects() const { return gameObjects; }
 
 private:
-    TileMap* tileMap;
+    std::unique_ptr<TileMap> tileMap;
     std::vector<Entity*>* entities; //enemies
     std::vector<GameObject*>* gameObjects; //decorations
 };

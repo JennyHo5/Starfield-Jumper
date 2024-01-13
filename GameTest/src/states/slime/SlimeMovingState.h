@@ -10,12 +10,12 @@ class SlimeMovingState :
     public BaseState
 {
 public:
-    SlimeMovingState(TileMap*, Player*, Slime *);
+    SlimeMovingState(const TileMap*, Player*, Slime *);
     void Enter() override;
     void Update(float deltaTime) override;
 
 private:
-    TileMap* map;
+    const TileMap* map;
     Player* player;
     Slime* slime;
     bool movingDirection; // 0 = left, 1 = right

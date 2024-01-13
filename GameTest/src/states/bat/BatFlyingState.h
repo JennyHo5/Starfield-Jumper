@@ -10,11 +10,11 @@ class BatFlyingState :
     public BaseState
 {
 public:
-    BatFlyingState(TileMap*, Player*, Bat*);
+    BatFlyingState(const TileMap*, Player*, Bat*);
     void Update(float deltaTime) override;
 
 private:
-    TileMap* map;
+    const TileMap* map;
     Player* player;
     Bat* bat;
     bool movingDirection; // 0 = left, 1 = right

@@ -10,12 +10,12 @@ class SlimeChasingState :
     public BaseState
 {
 public:
-    SlimeChasingState(TileMap*, Player*, Slime*);
+    SlimeChasingState(const TileMap*, Player*, Slime*);
     void Enter() override;
     void Update(float deltaTime) override;
 
 private:
-    TileMap* map;
+    const TileMap* map;
     Player* player;
     Slime* slime;
 };

@@ -6,7 +6,6 @@ GameLevel::GameLevel(TileMap* tm, std::vector<Entity*>* es, std::vector<GameObje
 {}
 
 GameLevel::~GameLevel() {
-    delete tileMap;
     for (Entity* e : *entities) {
         delete e;
     }
