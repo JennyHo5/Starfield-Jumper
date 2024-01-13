@@ -1,19 +1,11 @@
 #include "stdafx.h"
 #include "StateMachine.h"
 
-StateMachine::StateMachine():
-    currentState(nullptr)
+StateMachine::StateMachine()
 {}
 
-StateMachine::~StateMachine() {
-    // Cleanup allocated memory in the destructor
-    for (auto& entry : stateObjects) {
-        delete entry.second;
-    }
-}
-
-void StateMachine::AddState(State state, BaseState* stateObject) {
-    stateObjects[state] = stateObject;
+void StateMachine::AddState(State state, std::unique_ptr<BaseState> stateObject) {
+    stateObjects[state] = std::move(stateObject);
 }
 
 void StateMachine::ChangeState(State newState) {
@@ -22,7 +14,7 @@ void StateMachine::ChangeState(State newState) {
 
     auto it = stateObjects.find(newState);
     if (it != stateObjects.end()) {
-        currentState = it->second;
+        currentState = it->second.get();
         currentState->Enter(); // Call Enter when changing state
     }
     else {

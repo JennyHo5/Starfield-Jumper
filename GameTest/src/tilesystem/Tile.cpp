@@ -8,16 +8,16 @@ Tile::Tile(int t, float x, float y) :
 	width(TILE_SIZE),
 	height(TILE_SIZE)
 {
-	tileset = App::CreateSprite(".\\graphics\\stringstar_fields_sheet.png", 18, 11);
-	tileset->SetFrame(id); // Set the til's sprite to tileset's id'th frame
+	sprite = App::CreateSprite(".\\graphics\\stringstar_fields_sheet.png", 18, 11);
+	sprite->SetFrame(id); // Set the til's sprite to tileset's id'th frame
 }
 
 Tile::~Tile() {
-	delete tileset;
+	delete sprite;
 }
 
 void Tile::Render() {
-	tileset->Draw();
+	sprite->Draw();
 }
 
 bool Tile::Collidable() const {

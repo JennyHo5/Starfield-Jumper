@@ -10,7 +10,7 @@ public:
 
     void Render();
     
-    CSimpleSprite* GetSprite() const { return tileset; }
+    CSimpleSprite* GetSprite() const { return sprite; }
     float GetX() const { return x; }
     float GetY() const { return y; }
     int GetID() const { return id; }
@@ -25,6 +25,6 @@ private:
     float y;
     float width;
     float height;
-    CSimpleSprite* tileset;
+    CSimpleSprite* sprite;
 };
 

@@ -76,27 +76,15 @@ void PlayState::SpawnEnemies() {
 	const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 
 	// Spawn slimes
-	for (int x = 1; x < MAP_WIDTH; x++) {
+	for (int x = 1; x < MAP_WIDTH - 8; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			if ((*tiles)[x][y]->Collidable()) {
-				if (GetRandom(5) == 1) {
-					printf("Added slime at column %d's ground\n", x);
+			if ((*tiles)[x][y]->Collidable() || (*tiles)[x][y]->IsPlatform()) {
+				if (GetRandom(7) == 1) {
+					printf("Added slime at column %d\n", x);
 					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime.get()));
-					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime.get()));
-					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime.get()));
-					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
-					gameLevel->AddEntity(std::move(slime));
-				}
-			}
-
-			if ((*tiles)[x][y]->IsPlatform()) {
-				if (GetRandom(10) == 1) {
-					printf("Added slime at column %d's platform\n", x);
-					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime.get()));
-					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime.get()));
-					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, std::make_unique<SlimeMovingState>(gameLevel->GetTileMap(), player.get(), slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, std::make_unique<SlimeDeadState>(slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, std::make_unique<SlimeChasingState>(gameLevel->GetTileMap(), player.get(), slime.get()));
 					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
 					gameLevel->AddEntity(std::move(slime));
 				}
@@ -111,7 +99,7 @@ void PlayState::SpawnEnemies() {
 				if (GetRandom(20) == 1) {
 					printf("Added bat at column %d\n", x);
 					std::unique_ptr<Bat> bat = std::make_unique<Bat>((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
-					bat->GetStateMachine()->AddState(State::BAT_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player.get(), bat.get()));
+					bat->GetStateMachine()->AddState(State::BAT_FLYING, std::make_unique<BatFlyingState>(gameLevel->GetTileMap(), player.get(), bat.get()));
 					bat->GetStateMachine()->ChangeState(State::BAT_FLYING);
 					gameLevel->AddEntity(std::move(bat));
 				}

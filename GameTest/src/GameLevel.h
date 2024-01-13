@@ -19,9 +19,9 @@ public:
 
     const TileMap* GetTileMap() const { return tileMap.get(); }
 
-    const std::vector<std::unique_ptr<Entity>>& GetEntities() const { return entities; }
+    std::vector<std::unique_ptr<Entity>>& GetEntities() { return entities; }
 
-    const std::vector<std::unique_ptr<GameObject>>& GetGameObjects() const { return gameObjects; }
+    std::vector<std::unique_ptr<GameObject>>& GetGameObjects() { return gameObjects; }
 
 private:
     std::unique_ptr<TileMap> tileMap;

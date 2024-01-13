@@ -10,10 +10,8 @@ class StateMachine
 public:
 	StateMachine();
 
-	~StateMachine();
-
 	// Add states to the state machine
-	void AddState(State state, BaseState* stateObject);
+	void AddState(State state, std::unique_ptr<BaseState> stateObject);
 
 	// Change the current state
 	void ChangeState(State newState);
@@ -30,7 +28,7 @@ public:
 	BaseState* GetCurrentState() { return currentState; }
 
 private:
-	std::unordered_map<State, BaseState*> stateObjects;
+	std::unordered_map<State, std::unique_ptr<BaseState>> stateObjects;
 	BaseState* currentState;
 };
 

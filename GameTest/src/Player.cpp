@@ -12,12 +12,12 @@ Player::Player(float x, float y, GameLevel& level):
 	sprite->CreateAnimation(JUMP, ANIMATION_SPEED * 3, {18, 19, 20});
 	sprite->CreateAnimation(FALLING, ANIMATION_SPEED * 3, { 22, 23, 24, 27 });
 	sprite->CreateAnimation(DEAD, ANIMATION_SPEED * 2, { 28, 29, 30, 31, 32, 33, 34, 35});
-	stateMachine.AddState(State::IDLE, new PlayerIdleState(this));
-	stateMachine.AddState(State::WALKING, new PlayerWalkingState(this));
-	stateMachine.AddState(State::JUMP, new PlayerJumpState(this));
-	stateMachine.AddState(State::FALLING, new PlayerFallingState(this));
-	stateMachine.AddState(State::DEAD, new PlayerDeadState(this));
-	stateMachine.AddState(State::WIN, new PlayerWinState(this));
+	stateMachine.AddState(State::IDLE, std::make_unique<PlayerIdleState>(this));
+	stateMachine.AddState(State::WALKING, std::make_unique<PlayerWalkingState>(this));
+	stateMachine.AddState(State::JUMP, std::make_unique<PlayerJumpState>(this));
+	stateMachine.AddState(State::FALLING, std::make_unique<PlayerFallingState>(this));
+	stateMachine.AddState(State::DEAD, std::make_unique<PlayerDeadState>(this));
+	stateMachine.AddState(State::WIN, std::make_unique<PlayerWinState>(this));
 	stateMachine.ChangeState(State::FALLING);
 
 	score = 0;

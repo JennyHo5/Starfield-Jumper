@@ -16,8 +16,8 @@ void Init()
 	freopen("CONOUT$", "w", stdout);
 
 	// Initialize state machine for the game
-	gStateMachine->AddState(State::START, new StartState());
-	gStateMachine->AddState(State::PLAY, new PlayState());
+	gStateMachine->AddState(State::START, std::make_unique<StartState>());
+	gStateMachine->AddState(State::PLAY, std::make_unique<PlayState>());
 	gStateMachine->ChangeState(State::START);
 }
 
