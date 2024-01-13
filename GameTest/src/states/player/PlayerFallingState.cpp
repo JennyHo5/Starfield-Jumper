@@ -26,8 +26,11 @@ void PlayerFallingState::Update(float deltaTime) {
 			// Set the player to walking or idle
 			if (App::IsKeyPressed(VK_LEFT) || App::IsKeyPressed(0x41) || App::IsKeyPressed(VK_RIGHT) || App::IsKeyPressed(0x44))
 				player->ChangeState(State::WALKING);
-			else player->ChangeState(State::IDLE);
-
+			else 
+			{
+				App::PlaySoundW(".\\sounds\\stepdirt_1.wav");
+				player->ChangeState(State::IDLE);
+			}
 			player->SetY(tileBottomLeft->GetY() + TILE_SIZE / 2 + PLAYER_HEIGHT / 2);
 
 	}
