@@ -68,6 +68,8 @@ Tile and envirnment sprite:
 Sound effects:
 
 - https://opengameart.org/content/50-rpg-sound-effects
+- https://opengameart.org/content/jump-landing-sound
+- https://opengameart.org/content/foot-walking-step-sounds-on-stone-water-snow-wood-and-dirt
 
 Background music:
 

@@ -14,9 +14,9 @@ TileMap::~TileMap() {
 }
 
 void TileMap::loadMap(const std::vector<std::vector<int>>& mapData) {
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            tiles[j][i] = new Tile(mapData[j][i], j * TILE_SIZE + TILE_SIZE / 2, i * TILE_SIZE + TILE_SIZE / 2);
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            tiles[x][y] = new Tile(mapData[x][y], x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE + TILE_SIZE / 2);
         }
     }
 }

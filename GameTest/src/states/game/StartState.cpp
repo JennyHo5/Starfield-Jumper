@@ -26,11 +26,13 @@ void StartState::Update(float deltaTime) {
 void StartState::Render() {
 	background1->Draw();
 	background2->Draw();
-	App::Print(20, WINDOW_HEIGHT - 20, "WASD / arrow keys to control directions", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 40, "Space key to jump", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 60, "Jump on a slime to eliminate it, avoid bats as you can", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 80, "Esc to exit", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 100, "Press Space or Return to start the game!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 40, "Everytime you start a new level, you will be sent to a randomly generated world", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 60, "Watch out your steps below you, you might fall into a hole when the game starts!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 80, "Jump on a slime to eliminate it, and avoid bats as you can", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 100, "WASD / arrow keys to control directions", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 120, "Space key to jump", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 140, "Esc to exit", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 160, "Press Space or Return to start the game!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(WINDOW_WIDTH - 200, WINDOW_HEIGHT - 20, "Current Level: ", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(WINDOW_WIDTH - 60, WINDOW_HEIGHT - 20, std::to_string(currentLevel).c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 }
