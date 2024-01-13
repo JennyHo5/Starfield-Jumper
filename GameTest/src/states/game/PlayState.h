@@ -30,7 +30,7 @@ private:
     float backgroundY;
 
     LevelMaker levelMaker;
-    GameLevel* gameLevel;
+    std::unique_ptr<GameLevel> gameLevel;
     std::unique_ptr<Player> player;
 
     // Move every sprite in the scene by -camX

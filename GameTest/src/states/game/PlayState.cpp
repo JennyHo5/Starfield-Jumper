@@ -12,7 +12,6 @@ PlayState::~PlayState() {
 	delete background1;
 	delete background2;
 	delete background3;
-	delete gameLevel;
 }
 
 void PlayState::Enter() {
@@ -20,7 +19,7 @@ void PlayState::Enter() {
 	App::PlaySoundW(".\\sounds\\bgm.wav", true);
 
 	// Generate new gamelevel and player
-	gameLevel = levelMaker.Generate();
+	gameLevel = std::move(levelMaker.Generate());
 
 	player = std::make_unique<Player>(TILE_SIZE / 2, WINDOW_WIDTH / 2, *gameLevel);
 	background1->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
@@ -168,6 +167,5 @@ void PlayState::Exit() {
 	printf("Exiting Play State\n");
 	App::StopSound(".\\sounds\\bgm.wav");
 	player.reset();
-	delete gameLevel;
-	gameLevel = nullptr;
+	gameLevel.reset();
 }

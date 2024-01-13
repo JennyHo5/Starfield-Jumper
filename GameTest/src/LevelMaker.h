@@ -10,7 +10,7 @@ public:
 	LevelMaker();
 	std::vector<std::vector<int>> GenerateMapData() const;
 	void GenerateDecors();
-	GameLevel* Generate();
+	std::unique_ptr<GameLevel> Generate();
 
 private:
 	float width;
