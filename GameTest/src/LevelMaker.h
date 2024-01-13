@@ -17,7 +17,6 @@ private:
 	float height;
 	std::unique_ptr<TileMap> tileMap;
 	std::vector<std::vector<int>> mapData;
-	std::vector<Entity*>* entities;
-	std::vector<GameObject*>* gameObjects;
+	std::unique_ptr<GameLevel> newLevel;
 };
 

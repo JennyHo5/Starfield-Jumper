@@ -1,16 +1,9 @@
 #include "stdafx.h"
 #include "GameLevel.h"
 
-GameLevel::GameLevel(std::unique_ptr<TileMap> tm, std::vector<GameObject*>* go):
-    tileMap(std::move(tm)), gameObjects(go) 
+GameLevel::GameLevel(std::unique_ptr<TileMap> tm):
+    tileMap(std::move(tm))
 {}
-
-GameLevel::~GameLevel() {
-    for (GameObject* o : *gameObjects) {
-        delete o;
-    }
-    delete gameObjects;
-}
 
 void GameLevel::Update(float deltaTime) {
     for (const auto & e : entities) {
@@ -27,7 +20,7 @@ void GameLevel::Update(float deltaTime) {
 void GameLevel::Render() {
     tileMap->Render();
 
-    for (GameObject* o : *gameObjects) {
+    for (const auto& o : gameObjects) {
         o->Render();
     }
 
@@ -49,15 +42,14 @@ void GameLevel::RemoveEntity(const Entity* e) {
         entities.end());
 }
 
-void GameLevel::AddGameObject(GameObject* o) {
-    gameObjects->push_back(o);
+void GameLevel::AddGameObject(std::unique_ptr<GameObject> o) {
+    gameObjects.push_back(std::move(o));
 }
 
 void GameLevel::RemoveGameObject(GameObject* o) {
-    auto it = std::find(gameObjects->begin(), gameObjects->end(), o);
-
-    if (it != gameObjects->end()) {
-        gameObjects->erase(it);
-        delete o;
-    }
+    gameObjects.erase(std::remove_if(gameObjects.begin(), gameObjects.end(),
+        [o](const std::unique_ptr<GameObject>& ptr) {
+            return ptr.get() == o;
+        }),
+        gameObjects.end());
 }

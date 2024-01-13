@@ -106,7 +106,7 @@ void PlayState::SpawnEnemies() {
 
 	// Spawn eagles
 	for (int x = 1; x < MAP_WIDTH; x++) {
-		for (int y = MAP_HEIGHT * 2/3; y < MAP_HEIGHT; y++) {
+		for (int y = MAP_HEIGHT * 2/3; y < MAP_HEIGHT - 1; y++) {
 			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
 				if (GetRandom(20) == 1) {
 					printf("Added bat at column %d\n", x);
@@ -135,9 +135,9 @@ void PlayState::Translate() {
 	if (newX3 < 0)
 		newX3 = BACKGROUND_WIDTH / 2 + newX3;
 
-	background1->SetPosition(newX1, backgroundY); // Use floor to avoid blurry during movement
-	background2->SetPosition(newX2, backgroundY);
-	background3->SetPosition(newX3, backgroundY);
+	background1->SetPosition(static_cast<float>(newX1), backgroundY); // Use floor to avoid blurry during movement
+	background2->SetPosition(static_cast<float>(newX2), backgroundY);
+	background3->SetPosition(static_cast<float>(newX3), backgroundY);
 
 	// Player
 	player->GetSprite()->SetPosition(player->GetX() - floor(camX), player->GetY());
@@ -158,8 +158,8 @@ void PlayState::Translate() {
 	}
 
 	// Game Objects
-	std::vector<GameObject*>* gameObjects = gameLevel->GetGameObjects();
-	for (GameObject* o : *gameObjects) {
+	for (const auto& optr : gameLevel->GetGameObjects()) {
+		GameObject* o = optr.get();
 		o->GetSprite()->SetPosition(o->GetX() - floor(camX), o->GetY());
 	}
 }

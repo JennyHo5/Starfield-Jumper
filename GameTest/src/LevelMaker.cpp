@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "LevelMaker.h"
 
-LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT), tileMap(nullptr), entities(nullptr), gameObjects(nullptr)
+LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT)
 {
 }
 
@@ -94,8 +94,8 @@ void LevelMaker::GenerateDecors() {
 		}
 	}
 
-	GameObject* sign = new GameObject(startColumn * TILE_SIZE + TILE_SIZE / 2, startRow * TILE_SIZE + TILE_SIZE + SIGN_HEIGHT / 2, TILE_SIZE, TILE_SIZE, App::CreateSprite(".\\graphics\\decor\\sign.png", 1, 1));
-	gameObjects->push_back(sign);
+	std::unique_ptr<GameObject> sign = std::make_unique<GameObject>(startColumn * TILE_SIZE + TILE_SIZE / 2, startRow * TILE_SIZE + TILE_SIZE + SIGN_HEIGHT / 2, TILE_SIZE, TILE_SIZE, App::CreateSprite(".\\graphics\\decor\\sign.png", 1, 1));
+	newLevel->AddGameObject(std::move(sign));
 
 
 	// if there is a platform, might generate a platform decor
@@ -103,16 +103,16 @@ void LevelMaker::GenerateDecors() {
 		for (int y = 0; y < height; y++) {
 			if (mapData[x][y] == TILE_ID_PLATFORM_LEFT || mapData[x][y] == TILE_ID_PLATFORM_MIDDLE || mapData[x][y] == TILE_ID_PLATFORM_RIGHT) {
 				if (GetRandom(5) == 1) {
-					GameObject* newDecor = new GameObject(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE + TILE_SIZE / 2, TILE_SIZE, TILE_SIZE, App::CreateSprite(".\\graphics\\decor\\platform_decor_small.png", 1, 1));
-					gameObjects->push_back(newDecor);
+					std::unique_ptr<GameObject> newDecor = std::make_unique<GameObject>(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE + TILE_SIZE / 2, TILE_SIZE, TILE_SIZE, App::CreateSprite(".\\graphics\\decor\\platform_decor_small.png", 1, 1));
+					newLevel->AddGameObject(std::move(newDecor));
 				}
 				else if (GetRandom(5) == 1) {
-					GameObject* newDecor = new GameObject(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, App::CreateSprite(".\\graphics\\decor\\platform_decor_middle.png", 1, 1));
-					gameObjects->push_back(newDecor);
+					std::unique_ptr<GameObject> newDecor = std::make_unique<GameObject>(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, App::CreateSprite(".\\graphics\\decor\\platform_decor_middle.png", 1, 1));
+					newLevel->AddGameObject(std::move(newDecor));
 				}
 				else if (GetRandom(5) == 1) {
-					GameObject* newDecor = new GameObject(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE - TILE_SIZE / 2, TILE_SIZE, TILE_SIZE * 3, App::CreateSprite(".\\graphics\\decor\\platform_decor_large.png", 1, 1));
-					gameObjects->push_back(newDecor);
+					std::unique_ptr<GameObject> newDecor = std::make_unique<GameObject>(x * TILE_SIZE + TILE_SIZE / 2, y * TILE_SIZE - TILE_SIZE / 2, TILE_SIZE, TILE_SIZE * 3, App::CreateSprite(".\\graphics\\decor\\platform_decor_large.png", 1, 1));
+					newLevel->AddGameObject(std::move(newDecor));
 				}
 			}
 		}
@@ -125,8 +125,8 @@ void LevelMaker::GenerateDecors() {
 			{
 			if(GetRandom(8) == 1)
 			{
-				GameObject* newRock = new GameObject(TILE_SIZE * (x + 1 / 2), TILE_SIZE * (GROUND_HEIGHT + 1), ROCK_WIDTH, ROCK_HEIGHT, App::CreateSprite(".\\graphics\\decor\\rock.png", 1, 1));
-				gameObjects->push_back(newRock);
+				std::unique_ptr<GameObject> newRock = std::make_unique<GameObject>(TILE_SIZE * (x + 1 / 2), TILE_SIZE * (GROUND_HEIGHT + 1), ROCK_WIDTH, ROCK_HEIGHT, App::CreateSprite(".\\graphics\\decor\\rock.png", 1, 1));
+				newLevel->AddGameObject(std::move(newRock));
 			}
 		}
 	}
@@ -138,24 +138,25 @@ void LevelMaker::GenerateDecors() {
 		{
 			if (GetRandom(3) == 1)
 			{
-				GameObject* newTree = new GameObject(TILE_SIZE * (x - 2 + 1 + 1 / 2), TILE_SIZE * GROUND_HEIGHT + SMALL_TREE_HEIGHT / 2, SMALL_TREE_WIDTH, SMALL_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\small-tree.png", 1, 1));
-				gameObjects->push_back(newTree);
+				std::unique_ptr<GameObject> newTree = std::make_unique<GameObject>(TILE_SIZE * (x - 2 + 1 + 1 / 2), TILE_SIZE * GROUND_HEIGHT + SMALL_TREE_HEIGHT / 2, SMALL_TREE_WIDTH, SMALL_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\small-tree.png", 1, 1));
+				newLevel->AddGameObject(std::move(newTree));
 			}
 		}
 	}
 
 	// Add the big tree at the end
-	GameObject* newBigTree = new GameObject(TILE_SIZE * MAP_WIDTH - BIG_TREE_WIDTH / 2, TILE_SIZE * (GROUND_HEIGHT + 1) + BIG_TREE_HEIGHT / 2, BIG_TREE_WIDTH, BIG_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\big-tree.png", 1, 1));
-	gameObjects->push_back(newBigTree);
+	std::unique_ptr<GameObject> newBigTree = std::make_unique<GameObject>(TILE_SIZE * MAP_WIDTH - BIG_TREE_WIDTH / 2, TILE_SIZE * (GROUND_HEIGHT + 1) + BIG_TREE_HEIGHT / 2, BIG_TREE_WIDTH, BIG_TREE_HEIGHT, App::CreateSprite(".\\graphics\\decor\\big-tree.png", 1, 1));
+	newLevel->AddGameObject(std::move(newBigTree));
 
 }
 
 std::unique_ptr<GameLevel> LevelMaker::Generate() {
-	gameObjects = new std::vector<GameObject*>(); // Deallocated in GameLevel
 	tileMap = std::make_unique<TileMap>(MAP_WIDTH, MAP_HEIGHT); // Deallocated in GameLevel
 	
 	mapData = GenerateMapData();
 	tileMap->loadMap(mapData);
-	GenerateDecors();
-	return std::make_unique<GameLevel>(std::move(tileMap), gameObjects); // Deallocated in PlayState
+	newLevel = std::make_unique<GameLevel>(std::move(tileMap));
+	GenerateDecors(); // Adding gameObjects to newLevel
+
+	return std::move(newLevel); // Deallocated in PlayState
 }
