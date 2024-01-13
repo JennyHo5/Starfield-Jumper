@@ -151,12 +151,11 @@ void LevelMaker::GenerateDecors() {
 }
 
 std::unique_ptr<GameLevel> LevelMaker::Generate() {
-	entities = new std::vector<Entity*>(); // Deallocated in GameLevel
 	gameObjects = new std::vector<GameObject*>(); // Deallocated in GameLevel
 	tileMap = std::make_unique<TileMap>(MAP_WIDTH, MAP_HEIGHT); // Deallocated in GameLevel
 	
 	mapData = GenerateMapData();
 	tileMap->loadMap(mapData);
 	GenerateDecors();
-	return std::make_unique<GameLevel>(std::move(tileMap), entities, gameObjects); // Deallocated in PlayState
+	return std::make_unique<GameLevel>(std::move(tileMap), gameObjects); // Deallocated in PlayState
 }

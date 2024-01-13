@@ -13,6 +13,5 @@ public:
 
 private:
 	Player* player;
-	int animTimer;
 };
 

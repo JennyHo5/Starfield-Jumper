@@ -19,16 +19,17 @@ void PlayState::Enter() {
 	App::PlaySoundW(".\\sounds\\bgm.wav", true);
 
 	// Generate new gamelevel and player
-	gameLevel = std::move(levelMaker.Generate());
-
+	gameLevel = levelMaker.Generate();
 	player = std::make_unique<Player>(TILE_SIZE / 2, WINDOW_WIDTH / 2, *gameLevel);
+
+	// Reset background and camera positions
 	background1->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background2->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background3->SetPosition(BACKGROUND_WIDTH / 2, WINDOW_HEIGHT / 2);
 	background1->GetPosition(backgroundX, backgroundY);
 	camX = 0;
 
-	gameLevel->Init();
+	// Add enemies to the gameLevel
 	SpawnEnemies();
 }
 
@@ -80,24 +81,24 @@ void PlayState::SpawnEnemies() {
 			if ((*tiles)[x][y]->Collidable()) {
 				if (GetRandom(5) == 1) {
 					printf("Added slime at column %d's ground\n", x);
-					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime));
-					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
-					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime));
+					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime.get()));
 					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
-					gameLevel->AddEntity(slime);
+					gameLevel->AddEntity(std::move(slime));
 				}
 			}
 
 			if ((*tiles)[x][y]->IsPlatform()) {
 				if (GetRandom(10) == 1) {
 					printf("Added slime at column %d's platform\n", x);
-					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
-					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime));
-					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
-					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime));
+					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player.get(), slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime.get()));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player.get(), slime.get()));
 					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
-					gameLevel->AddEntity(slime);
+					gameLevel->AddEntity(std::move(slime));
 				}
 			}
 		}
@@ -109,10 +110,10 @@ void PlayState::SpawnEnemies() {
 			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
 				if (GetRandom(20) == 1) {
 					printf("Added bat at column %d\n", x);
-					Bat* bat = new Bat((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
-					bat->GetStateMachine()->AddState(State::BAT_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player.get(), bat));
+					std::unique_ptr<Bat> bat = std::make_unique<Bat>((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
+					bat->GetStateMachine()->AddState(State::BAT_FLYING, new BatFlyingState(gameLevel->GetTileMap(), player.get(), bat.get()));
 					bat->GetStateMachine()->ChangeState(State::BAT_FLYING);
-					gameLevel->AddEntity(bat);
+					gameLevel->AddEntity(std::move(bat));
 				}
 			}
 		}
@@ -151,8 +152,8 @@ void PlayState::Translate() {
 	}
 
 	// Entities
-	std::vector<Entity*>* entities = gameLevel->GetEntities();
-	for (Entity* e : *entities) {
+	for (const auto& eptr : gameLevel->GetEntities()) {
+		Entity* e = eptr.get();
 		e->GetSprite()->SetPosition(e->GetX() - floor(camX), e->GetY());
 	}
 

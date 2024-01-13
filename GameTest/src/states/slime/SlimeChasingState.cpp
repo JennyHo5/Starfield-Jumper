@@ -12,6 +12,8 @@ void SlimeChasingState::Enter() {
 }
 
 void SlimeChasingState::Update(float deltaTime) {
+	HandleCollision();
+
 	// Calculate difference between slime and player on X axis, only chase if <= 5 tiles
 	float diff = std::abs(player->GetX() - slime->GetX());
 
@@ -69,5 +71,20 @@ void SlimeChasingState::Update(float deltaTime) {
 				slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 			}
 		}
+	}
+}
+
+void SlimeChasingState::HandleCollision() {
+	// If slime collides with player
+	if (slime->Collides(player)) {
+		// If player is falling on slime, set slime to dead
+		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
+		{
+			slime->ChangeState(State::SLIME_DEAD);
+			player->AddScore(100);
+		}
+		// Else, set player to dead
+		else
+			player->ChangeState(State::DEAD);
 	}
 }

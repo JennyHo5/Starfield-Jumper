@@ -14,6 +14,8 @@ BatFlyingState::BatFlyingState(const TileMap* tm, Player* p, Bat* e) :
 }
 
 void BatFlyingState::Update(float deltaTime) {
+	HandleCollision();
+
 	movingTimer += deltaTime;
 	// Reset movement direction and timer if timer is above duration
 	if (movingTimer > movingDuration) {
@@ -62,4 +64,9 @@ void BatFlyingState::Update(float deltaTime) {
 			movingTimer = 0;
 		}
 	}
+}
+
+void BatFlyingState::HandleCollision() {
+	if (bat->Collides(player))
+		player->ChangeState(State::DEAD);
 }

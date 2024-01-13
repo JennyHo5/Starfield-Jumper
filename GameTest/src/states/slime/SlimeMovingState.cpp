@@ -18,6 +18,8 @@ void SlimeMovingState::Enter() {
 }
 
 void SlimeMovingState::Update(float deltaTime) {
+	HandleCollision();
+
 	movingTimer += deltaTime;
 	// Reset movement direction and timer if timer is above duration
 	if (movingTimer > movingDuration) {
@@ -109,4 +111,15 @@ void SlimeMovingState::Update(float deltaTime) {
 		slime->ChangeState(State::SLIME_CHASING);
 	}
 
+}
+
+void SlimeMovingState::HandleCollision() {
+	// If slime collides with player
+	if (slime->Collides(player)) {
+		// If player is falling on slime, set slime to dead
+		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
+			slime->ChangeState(State::DEAD);
+		else
+			player->ChangeState(State::DEAD);
+	}
 }

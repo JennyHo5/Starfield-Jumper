@@ -13,6 +13,8 @@ public:
     BatFlyingState(const TileMap*, Player*, Bat*);
     void Update(float deltaTime) override;
 
+    void HandleCollision();
+
 private:
     const TileMap* map;
     Player* player;

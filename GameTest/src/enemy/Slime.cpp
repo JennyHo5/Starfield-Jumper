@@ -11,3 +11,4 @@ Slime::Slime(float x, float y, GameLevel& level) :
 	sprite->CreateAnimation(SLIME_CHASING, ANIMATION_SPEED, {8, 9, 10, 11, 12, 13, 14, 15 });
 
 }
+
