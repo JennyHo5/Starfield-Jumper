@@ -124,15 +124,15 @@ void PlayState::SpawnEnemies() {
 
 void PlayState::Translate() {
 	// Background
-	float newX1 = fmod((backgroundX - floor(camX)), BACKGROUND_LOOPING_POINT); // Scrolling background
+	double newX1 = fmod((backgroundX - floor(camX)), BACKGROUND_LOOPING_POINT); // Scrolling background
 	if (newX1 < 0)
 		newX1 = BACKGROUND_WIDTH / 2 + newX1;
 
-	float newX2 = fmod((backgroundX - floor(camX * 0.8)), BACKGROUND_LOOPING_POINT);
+	double newX2 = fmod((backgroundX - floor(camX * 0.8)), BACKGROUND_LOOPING_POINT);
 	if (newX2 < 0)
 		newX2 = BACKGROUND_WIDTH / 2 + newX2;
 
-	float newX3 = fmod((backgroundX - floor(camX * 0.6)), BACKGROUND_LOOPING_POINT);
+	double newX3 = fmod((backgroundX - floor(camX * 0.6)), BACKGROUND_LOOPING_POINT);
 	if (newX3 < 0)
 		newX3 = BACKGROUND_WIDTH / 2 + newX3;
 

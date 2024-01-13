@@ -13,7 +13,7 @@ void SlimeChasingState::Enter() {
 
 void SlimeChasingState::Update(float deltaTime) {
 	// Calculate difference between slime and player on X axis, only chase if <= 5 tiles
-	int diff = std::abs(player->GetX() - slime->GetX());
+	float diff = std::abs(player->GetX() - slime->GetX());
 
 	if (diff >= TILE_SIZE * 5) {
 		slime->ChangeState(State::SLIME_MOVING);

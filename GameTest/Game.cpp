@@ -5,10 +5,10 @@
 #include "src/StateMachine.h"
 #include "src/states/game/PlayState.h"
 #include "src/states/game/StartState.h"
-#include "src/manager/StateMachineManager.h"
+#include "src/GameStateMachine.h"
 
 // State machine for the whole game
-StateMachine* gStateMachine = StateMachineManager::GetInstance();
+StateMachine* gStateMachine = GameStateMachine::GetInstance();
 
 void Init()
 {

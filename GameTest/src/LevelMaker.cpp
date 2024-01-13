@@ -8,7 +8,7 @@ LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT), tileMap(nullptr
 std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	printf("Generating Map Data from Level Maker\n");
 	// Create an 2D array, lay out the empty tiles first
-	std::vector<std::vector<int>> mapData(width, std::vector<int>(height, 0));
+	std::vector<std::vector<int>> mapData(MAP_WIDTH, std::vector<int>(MAP_HEIGHT, 0));
 
 	// Column by column generate grounds
 	for (int x = 0; x < width - 8; x++) {
@@ -62,7 +62,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	}
 
 	// Leave 8 tile width ground to generate big tree
-	for (int x = width - 8; x < width; x++) {
+	for (int x = MAP_WIDTH - 8; x < width; x++) {
 		// Lay out the empty space (from the middle to the top of the screen)
 		for (int y = GROUND_HEIGHT; y < height; y++) {
 			mapData[x][y] = TILE_ID_EMPTY;

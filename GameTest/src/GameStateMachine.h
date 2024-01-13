@@ -3,7 +3,7 @@
 
 class StateMachine;
 
-class StateMachineManager
+class GameStateMachine
 {
 
 public:
@@ -11,8 +11,8 @@ public:
 	static StateMachine* GetInstance();
 
 private: 
-	StateMachineManager();
-	~StateMachineManager();
+	GameStateMachine();
+	~GameStateMachine();
 	static StateMachine* instance; // The single instance of the StateMachine
 };
 

@@ -18,5 +18,5 @@ void PlayerDeadState::Update(float deltaTime) {
 		player->GetSprite()->SetFrame(35);
 	}
 	if (App::IsKeyPressed(0x52))
-		StateMachineManager::GetInstance()->ChangeState(State::START);
+		GameStateMachine::GetInstance()->ChangeState(State::START);
 }

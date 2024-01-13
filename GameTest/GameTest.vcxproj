@@ -199,7 +199,7 @@
     <ClInclude Include="src\global\constants.h" />
     <ClInclude Include="src\global\Util.h" />
     <ClInclude Include="src\LevelMaker.h" />
-    <ClInclude Include="src\manager\StateMachineManager.h" />
+    <ClInclude Include="src\GameStateMachine.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\StateMachine.h" />
     <ClInclude Include="src\states\BaseState.h" />
@@ -239,7 +239,7 @@
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\GameLevel.cpp" />
     <ClCompile Include="src\LevelMaker.cpp" />
-    <ClCompile Include="src\manager\StateMachineManager.cpp" />
+    <ClCompile Include="src\GameStateMachine.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\StateMachine.cpp" />
     <ClCompile Include="src\states\BaseState.cpp" />

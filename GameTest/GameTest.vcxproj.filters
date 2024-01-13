@@ -22,7 +22,7 @@
       <Filter>stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\enemy\Bat.cpp" />
-    <ClCompile Include="src\manager\StateMachineManager.cpp" />
+    <ClCompile Include="src\GameStateMachine.cpp" />
     <ClCompile Include="src\states\bat\BatFlyingState.cpp" />
     <ClCompile Include="src\states\game\PlayState.cpp" />
     <ClCompile Include="src\states\game\StartState.cpp" />
@@ -76,7 +76,7 @@
     <ClInclude Include="src\enemy\Bat.h" />
     <ClInclude Include="src\global\constants.h" />
     <ClInclude Include="src\global\Util.h" />
-    <ClInclude Include="src\manager\StateMachineManager.h" />
+    <ClInclude Include="src\GameStateMachine.h" />
     <ClInclude Include="src\states\bat\BatFlyingState.h" />
     <ClInclude Include="src\states\game\PlayState.h" />
     <ClInclude Include="src\states\game\StartState.h" />

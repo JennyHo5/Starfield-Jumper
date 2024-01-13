@@ -1,20 +1,20 @@
 #include "stdafx.h"
-#include "StateMachineManager.h"
+#include "GameStateMachine.h"
 
 // Initialize the static member variable
-StateMachine* StateMachineManager::instance = nullptr;
+StateMachine* GameStateMachine::instance = nullptr;
 
-StateMachineManager::StateMachineManager()
+GameStateMachine::GameStateMachine()
 {
 }
 
-StateMachineManager::~StateMachineManager() {
+GameStateMachine::~GameStateMachine() {
     if (instance != nullptr)
         delete instance;
 }
 
 // Function to get the single instance of StateMachine
-StateMachine* StateMachineManager::GetInstance() {
+StateMachine* GameStateMachine::GetInstance() {
     if (instance == nullptr) {
         instance = new StateMachine();
     }

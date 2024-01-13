@@ -11,5 +11,5 @@ void PlayerWinState::Enter() {
 
 void PlayerWinState::Update(float deltaTime) {
 	if (App::IsKeyPressed(0x52))
-		StateMachineManager::GetInstance()->ChangeState(State::START);
+		GameStateMachine::GetInstance()->ChangeState(State::START);
 }
