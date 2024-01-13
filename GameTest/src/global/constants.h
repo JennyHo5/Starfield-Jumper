@@ -83,6 +83,6 @@ enum class State {
 	SLIME_MOVING,
 	SLIME_DEAD,
 	SLIME_CHASING,
-	// Eagle states
-	EAGLE_FLYING
+	// Bat states
+	BAT_FLYING
 };

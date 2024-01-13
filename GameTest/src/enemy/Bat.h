@@ -8,7 +8,7 @@ class BatFlyingState;
 enum BatAnimation
 {
     FLYING_LEFT,
-    FLYING_RIGHT
+    FLYING_RIGHT,
 };
 
 class Bat :
@@ -16,4 +16,5 @@ class Bat :
 {
 public:
     Bat(float x, float y, GameLevel&);
+
 };
