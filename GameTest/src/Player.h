@@ -36,6 +36,7 @@ public:
     void CheckLeftCollisions();
     void CheckRightCollisions();
     void CheckBottomCollisions();
+    void CheckUpCollisions();
 
     int GetScore() const { return score; }
     void AddScore(int add) { score += add; }

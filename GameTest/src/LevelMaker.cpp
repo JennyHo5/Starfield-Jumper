@@ -18,7 +18,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to just be emptyness for the column
-		if (GetRandom(7) == 1) {
+		if (GetRandom(4) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_EMPTY;
 			}
@@ -32,7 +32,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to generate a pillar
-		if (GetRandom(8) == 1) {
+		if (GetRandom(6) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT - 1 + PILLAR_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
 			}
@@ -48,11 +48,11 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	}
 
 	// Row by row generate platforms
-	for (int y = GROUND_HEIGHT + PILLAR_HEIGHT; y < height; y++) {
+	for (int y = GROUND_HEIGHT + PILLAR_HEIGHT; y < height - 2; y++) {
 		// For a continuing empty space with 3 tile width, there's a chance to generate a platform
 		for (int x = 3; x < width; x++) {
 			if (mapData[x][y] == TILE_ID_EMPTY && mapData[x - 1][y] == TILE_ID_EMPTY && mapData[x - 2][y] == TILE_ID_EMPTY) {
-				if (GetRandom(40) == 1) {
+				if (GetRandom(20) == 1) {
 					mapData[x][y] = TILE_ID_PLATFORM_RIGHT;
 					mapData[x - 1][y] = TILE_ID_PLATFORM_MIDDLE;
 					mapData[x - 2][y] = TILE_ID_PLATFORM_LEFT;

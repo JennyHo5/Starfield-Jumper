@@ -30,13 +30,13 @@ const int COLLIDABLE[] = { 166, 167 };
 const int COLLIDABLE_SIZE = 5;
 
 const int MAP_WIDTH = 100;
-const int MAP_HEIGHT = 10;
+const int MAP_HEIGHT = 12;
 const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
 const int PILLAR_HEIGHT = MAP_HEIGHT * 1 / 5;
 
 // entities
 const float PLAYER_WIDTH = 50.0f;
-const float PLAYER_HEIGHT = 72.0f;
+const float PLAYER_HEIGHT = 85.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 

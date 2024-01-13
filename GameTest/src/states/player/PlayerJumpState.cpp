@@ -31,6 +31,8 @@ void PlayerJumpState::Update(float deltaTime) {
 		player->CheckRightCollisions();
 	}
 
+	player->CheckUpCollisions();
+
 	// Check if collide with enemies
 	for (Entity* e : *player->GetGameLevel()->GetEntities()) {
 		if (player->Collides(e) &&
