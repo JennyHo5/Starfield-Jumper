@@ -79,7 +79,7 @@ void PlayState::SpawnEnemies() {
 	// Spawn slimes
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			if ((*tiles)[x][y]->Collidable()) {
+			if ((*tiles)[x][y]->Collidable() || (*tiles)[x][y]->IsPlatform()) {
 				if (GetRandom(5) == 1) {
 					printf("Added slime at column %d\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);

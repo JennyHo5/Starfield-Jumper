@@ -26,12 +26,24 @@ void SlimeChasingState::Update(float deltaTime) {
 		// Stop the slime is there is a missing tile on the floor to the left or a solid tile directly left
 		Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
 		Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
+		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		
+		if (tileBottom && !tileBottom->IsPlatform()) {
+			if (!tileLeft || !tileBottomLeft ||
+				(tileLeft && tileBottomLeft
+					&& (tileLeft->Collidable() || !tileBottomLeft->Collidable()))) {
+				slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
+			}
 
-		if (tileLeft == nullptr || tileBottomLeft == nullptr ||
-			(tileLeft && tileBottomLeft && (tileLeft->Collidable() || !tileBottomLeft->Collidable()))) {
-			slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
 		}
-
+		else {
+			// Slime is on the platform
+			if (!tileLeft || !tileBottomLeft ||
+				!tileBottomLeft->IsPlatform())
+			{
+				slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
+			}
+		}
 	}
 	// If slime is at the left of the player
 	else {
@@ -41,9 +53,18 @@ void SlimeChasingState::Update(float deltaTime) {
 		// stop if there's a missing tile on the floor to the left or a solid tile directly left
 		Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
 		Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
-
-		if (tileRight == nullptr || tileBottomRight == nullptr ||
-			(tileRight && tileBottomRight && (tileRight->Collidable() || !tileBottomRight->Collidable()))) {
+		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		
+		if (tileBottom && !tileBottom->IsPlatform()) {
+			if (!tileRight || !tileBottomRight ||
+				(tileRight && tileBottomRight && (tileRight->Collidable() || !tileBottomRight->Collidable()))) {
+				slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
+			}
+		}
+		// Slime is on the platform
+		if (!tileRight || !tileBottomRight ||
+			!tileBottomRight->IsPlatform())
+		{
 			slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 		}
 	}

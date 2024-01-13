@@ -79,8 +79,11 @@ void Player::CheckBottomCollisions() {
 
 	if (tileBottomLeft && tileBottomRight) {
 		if (!tileBottomLeft->Collidable() && !tileBottomRight->Collidable()) {
-			SetDy(0);
-			ChangeState(State::FALLING);
+			if (!tileBottomLeft->IsPlatform() && !tileBottomRight->IsPlatform()) {
+				SetDy(0);
+				ChangeState(State::FALLING);
+
+			}
 		}
 	}
 }

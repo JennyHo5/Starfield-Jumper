@@ -10,7 +10,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 	// Create an 2D array, lay out the empty tiles first
 	std::vector<std::vector<int>> mapData(width, std::vector<int>(height, 0));
 
-	// Column by column generation
+	// Column by column generate grounds
 	for (int x = 0; x < width - 8; x++) {
 		// Lay out the empty space (from the middle to the top of the screen)
 		for (int y = GROUND_HEIGHT; y < height; y++) {
@@ -32,12 +32,11 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to generate a pillar
-		int pillarHeight = 2;
 		if (GetRandom(8) == 1) {
-			for (int y = 0; y < GROUND_HEIGHT - 1 + pillarHeight; y++) {
+			for (int y = 0; y < GROUND_HEIGHT - 1 + PILLAR_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
 			}
-			mapData[x][GROUND_HEIGHT - 1 + pillarHeight] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];;
+			mapData[x][GROUND_HEIGHT - 1 + PILLAR_HEIGHT] = TILE_ID_TOP[GetRandom(TOPS_NUMBER) - 1];;
 		}
 		// Chance to generate a grass or rock
 		else if (GetRandom(3) == 1) {
@@ -48,17 +47,18 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 	}
 
-	// Change the tile's style based on it's position
-	// For 0st column
-	// if 0st column is a pillar, change it to pillar style
-
-
-	// For 1 to width -1 column
-	for (int x = 1; x < width; x++) {
-		// TODO:
-		// If x column is a gap and x-1 column is a flat ground, then change the x-1 column to right style
-		// If x column is flat ground and x-1 column is a gap, then change x column to left style
-		// If x column is a pillar, then change x column to pillar style
+	// Row by row generate platforms
+	for (int y = GROUND_HEIGHT + PILLAR_HEIGHT; y < height; y++) {
+		// For a continuing empty space with 3 tile width, there's a chance to generate a platform
+		for (int x = 3; x < width; x++) {
+			if (mapData[x][y] == TILE_ID_EMPTY && mapData[x - 1][y] == TILE_ID_EMPTY && mapData[x - 2][y] == TILE_ID_EMPTY) {
+				if (GetRandom(40) == 1) {
+					mapData[x][y] = TILE_ID_PLATFORM_RIGHT;
+					mapData[x - 1][y] = TILE_ID_PLATFORM_MIDDLE;
+					mapData[x - 2][y] = TILE_ID_PLATFORM_LEFT;
+				}
+			}
+		}
 	}
 
 	// Leave 8 tile width ground to generate big tree

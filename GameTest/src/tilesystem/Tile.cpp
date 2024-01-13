@@ -28,3 +28,12 @@ bool Tile::Collidable() const {
 	}
 	return false;
 }
+
+bool Tile::IsPlatform() const {
+	for (size_t i = 0; i < PLATFORMS_SIZE; ++i) {
+		if (id == PLATFORMS[i]) {
+			return true;
+		}
+	}
+	return false;
+}

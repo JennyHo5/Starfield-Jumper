@@ -19,19 +19,24 @@ const int TILE_ID_TOP[] = {166, 167};
 const int TOPS_NUMBER = 2;
 const int TILE_ID_DECOR[] = {72, 73, 94};
 const int DECOR_NUMBER = 3;
-const int TILE_ID_LEFT = 162;
-const int TILE_ID_TOPLEFT = 172;
-const int TILE_ID_PILLAR_TOP = 144;
-const int COLLIDABLE[] = { 166, 167, 172 };
-const int COLLIDABLE_SIZE = 3;
+
+const int TILE_ID_PLATFORM_LEFT = 77;
+const int TILE_ID_PLATFORM_MIDDLE = 79;
+const int TILE_ID_PLATFORM_RIGHT = 81;
+const int PLATFORMS[] = { 77, 79, 81 };
+const int PLATFORMS_SIZE = 3;
+
+const int COLLIDABLE[] = { 166, 167 };
+const int COLLIDABLE_SIZE = 5;
 
 const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 10;
-const int GROUND_HEIGHT = MAP_HEIGHT * 2 / 5;
+const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
+const int PILLAR_HEIGHT = MAP_HEIGHT * 1 / 5;
 
 // entities
 const float PLAYER_WIDTH = 50.0f;
-const float PLAYER_HEIGHT = 80.0f;
+const float PLAYER_HEIGHT = 72.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 

@@ -17,6 +17,8 @@ public:
 
     bool Collidable() const;
 
+    bool IsPlatform() const;
+
 private:
     int id;
     float x;
