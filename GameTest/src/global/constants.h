@@ -35,7 +35,7 @@ const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
 const int PILLAR_HEIGHT = MAP_HEIGHT * 1 / 5;
 
 // entities
-const float PLAYER_WIDTH = 50.0f;
+const float PLAYER_WIDTH = 45.0f;
 const float PLAYER_HEIGHT = 85.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
@@ -57,6 +57,8 @@ const float SMALL_TREE_WIDTH = 256.0f;
 const float SMALL_TREE_HEIGHT = 256.0f;
 const float BIG_TREE_WIDTH = 512.0f;
 const float BIG_TREE_HEIGHT = 512.0f - 4*16.0f;
+const float SIGN_WIDTH = TILE_SIZE;
+const float SIGN_HEIGHT = 124.0f;
 
 // Animation
 const float ANIMATION_SPEED = 0.1f;

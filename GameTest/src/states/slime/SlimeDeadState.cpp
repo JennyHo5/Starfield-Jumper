@@ -5,6 +5,7 @@ SlimeDeadState::SlimeDeadState(Slime* slime) : slime(slime), animTimer(0) {
 }
 
 void SlimeDeadState::Enter() {
+	App::PlaySoundW(".\\sounds\\slime.wav");
 	animTimer = 0;
 	slime->GetSprite()->SetAnimation(SlimeAnimation::SLIME_DEAD);
 }

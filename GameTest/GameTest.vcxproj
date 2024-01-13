@@ -272,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\background-music.wav" />
+    <Media Include="sounds\slime.wav" />
     <Media Include="sounds\sword-unsheathe.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

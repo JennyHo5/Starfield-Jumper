@@ -18,6 +18,7 @@ PlayState::~PlayState() {
 
 void PlayState::Enter() {
 	printf("Entering PlayState\n");
+
 	// Generate new gamelevel and player
 	gameLevel = levelMaker.Generate();
 
@@ -30,8 +31,6 @@ void PlayState::Enter() {
 
 	gameLevel->Init();
 	SpawnEnemies();
-
-	//App::PlaySoundW(".\\sounds\\background-music.wav", true);
 }
 
 void PlayState::Update(float deltaTime) {
@@ -79,9 +78,21 @@ void PlayState::SpawnEnemies() {
 	// Spawn slimes
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			if ((*tiles)[x][y]->Collidable() || (*tiles)[x][y]->IsPlatform()) {
-				if (GetRandom(5) == 1) {
-					printf("Added slime at column %d\n", x);
+			if ((*tiles)[x][y]->Collidable()) {
+				if (GetRandom(3) == 1) {
+					printf("Added slime at column %d's ground\n", x);
+					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
+					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
+					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
+					slime->GetStateMachine()->AddState(State::SLIME_CHASING, new SlimeChasingState(gameLevel->GetTileMap(), player, slime));
+					slime->GetStateMachine()->ChangeState(State::SLIME_MOVING);
+					gameLevel->AddEntity(slime);
+				}
+			}
+
+			if ((*tiles)[x][y]->IsPlatform()) {
+				if (GetRandom(6) == 1) {
+					printf("Added slime at column %d's platform\n", x);
 					Slime* slime = new Slime((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, new SlimeMovingState(gameLevel->GetTileMap(), player, slime));
 					slime->GetStateMachine()->AddState(State::SLIME_DEAD, new SlimeDeadState(slime));
@@ -155,7 +166,7 @@ void PlayState::Translate() {
 
 void PlayState::Exit() {
 	printf("Exiting Play State\n");
-	// App::StopSound(".\\sounds\\background-music.wav");
+	App::StopSound(".\\sounds\\background-music.wav");
 	delete player;
 	player = nullptr;
 	delete gameLevel;

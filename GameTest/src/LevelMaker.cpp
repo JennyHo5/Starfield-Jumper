@@ -52,7 +52,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		// For a continuing empty space with 3 tile width, there's a chance to generate a platform
 		for (int x = 3; x < width; x++) {
 			if (mapData[x][y] == TILE_ID_EMPTY && mapData[x - 1][y] == TILE_ID_EMPTY && mapData[x - 2][y] == TILE_ID_EMPTY) {
-				if (GetRandom(20) == 1) {
+				if (GetRandom(15) == 1) {
 					mapData[x][y] = TILE_ID_PLATFORM_RIGHT;
 					mapData[x - 1][y] = TILE_ID_PLATFORM_MIDDLE;
 					mapData[x - 2][y] = TILE_ID_PLATFORM_LEFT;
@@ -78,6 +78,20 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 }
 
 void LevelMaker::GenerateDecors() {
+	// Add a sign at the start of the map
+	if (mapData[0][GROUND_HEIGHT - 1] != TILE_ID_EMPTY)
+	{
+		if (mapData[0][GROUND_HEIGHT + 1] == TILE_ID_EMPTY)
+		{
+			GameObject* sign = new GameObject(TILE_SIZE / 2, TILE_SIZE * (GROUND_HEIGHT + 1 / 2) + SIGN_HEIGHT / 2, SIGN_WIDTH, SIGN_HEIGHT, App::CreateSprite(".\\graphics\\decor\\sign.png", 1, 1));
+			gameObjects->push_back(sign);
+		}
+		else {
+			GameObject* sign = new GameObject(TILE_SIZE / 2, TILE_SIZE * (GROUND_HEIGHT + PILLAR_HEIGHT + 1/2) + SIGN_HEIGHT / 2, SIGN_WIDTH, SIGN_HEIGHT, App::CreateSprite(".\\graphics\\decor\\sign.png", 1, 1));
+			gameObjects->push_back(sign);
+		}
+	}
+
 	// if there is a solid top with 2 tile width, might generate a rock
 	for (int x = 1; x < width; x++) {
 		if (mapData[x][GROUND_HEIGHT - 1] != TILE_ID_EMPTY && mapData[x - 1][GROUND_HEIGHT - 1] != TILE_ID_EMPTY

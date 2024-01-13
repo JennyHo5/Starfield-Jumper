@@ -51,7 +51,16 @@ The Eagle entity includes:
 - **State Machine**: Manages states like Flying, Diving, Resting, etc.
 - **Flight Dynamics**: Handling the movement and behavior of the Eagle in the game world.
 
-## Conclusion
+## Credits
 
-Summarize the main points of your documentation and any additional information or considerations.
+Player's sprite:
+- https://lucky-loops.itch.io/character-satyr
+Slime's sprite:
+- https://rvros.itch.io/pixel-art-animated-slime
+Tile and envirnment sprite:
+- https://trixelized.itch.io/starstring-fields
+Sound effects:
+- https://opengameart.org/content/50-rpg-sound-effects
+Background music:
+- https://opengameart.org/content/platformer-game-music-pack
 
