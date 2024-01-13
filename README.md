@@ -54,13 +54,22 @@ The Eagle entity includes:
 ## Credits
 
 Player's sprite:
+
 - https://lucky-loops.itch.io/character-satyr
+
 Slime's sprite:
+
 - https://rvros.itch.io/pixel-art-animated-slime
+
 Tile and envirnment sprite:
+
 - https://trixelized.itch.io/starstring-fields
+
 Sound effects:
+
 - https://opengameart.org/content/50-rpg-sound-effects
+
 Background music:
+
 - https://opengameart.org/content/platformer-game-music-pack
 
