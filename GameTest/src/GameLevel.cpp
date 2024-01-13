@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "GameLevel.h"
 
-GameLevel::GameLevel(TileMap* tm, std::vector<Entity*>* es, std::vector<GameObject*>* go):
-    tileMap(tm), entities(es), gameObjects(go) 
+GameLevel::GameLevel(std::unique_ptr<TileMap> tm, std::vector<Entity*>* es, std::vector<GameObject*>* go):
+    tileMap(std::move(tm)), entities(es), gameObjects(go) 
 {}
 
 GameLevel::~GameLevel() {

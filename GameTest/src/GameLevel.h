@@ -7,7 +7,7 @@ class Entity;
 
 class GameLevel {
 public:
-    GameLevel(TileMap* tileMap, std::vector<Entity*>* entities, std::vector<GameObject*>* gameObjects);
+    GameLevel(std::unique_ptr<TileMap> tileMap, std::vector<Entity*>* entities, std::vector<GameObject*>* gameObjects);
     ~GameLevel();
 
     void Init();

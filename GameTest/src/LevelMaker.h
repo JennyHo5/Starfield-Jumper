@@ -15,7 +15,7 @@ public:
 private:
 	float width;
 	float height;
-	TileMap* tileMap;
+	std::unique_ptr<TileMap> tileMap;
 	std::vector<std::vector<int>> mapData;
 	std::vector<Entity*>* entities;
 	std::vector<GameObject*>* gameObjects;
