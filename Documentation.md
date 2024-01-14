@@ -14,7 +14,6 @@ The following system/engine blocks are pre-programmed before Jan 12, 2024 by me:
 - State machine class
 - Entity class
 - Game Level class
-- Level Maker class
 - Player class
 
 ## Main Game
