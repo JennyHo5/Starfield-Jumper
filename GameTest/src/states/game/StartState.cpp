@@ -32,7 +32,7 @@ void StartState::Render() {
 	background3->Draw();
 	App::Print(20, WINDOW_HEIGHT - 40, "Everytime you start a new level, you will be sent to a randomly generated world", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 60, "Watch your steps, you might fall into a hole when the game starts!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-	App::Print(20, WINDOW_HEIGHT - 80, "Jump on a slime to eliminate it, and avoid bats as you can", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+	App::Print(20, WINDOW_HEIGHT - 80, "Jump on an enemy to eliminate it, and avoid bats as you can", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 100, "WASD / arrow keys to control directions", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 120, "Space key to jump", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(20, WINDOW_HEIGHT - 140, "Esc to exit", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);

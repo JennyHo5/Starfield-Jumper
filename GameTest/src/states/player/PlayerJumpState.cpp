@@ -5,12 +5,16 @@ PlayerJumpState::PlayerJumpState(Player* p) : player(p) {
 }
 
 void PlayerJumpState::Enter() {
-	player->SetAnimation(PlayerAnimation::JUMP);
 	player->SetDy(PLAYER_JUMP_VELOCITY);
 	App::PlaySoundW(".\\sounds\\jumpland.wav");
 }
 
 void PlayerJumpState::Update(float deltaTime) {
+	if (player->GetDirection() == 0)
+		player->SetAnimation(PlayerAnimation::JUMP_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::JUMP_RIGHT);
+
 
 	player->SetDy(player->GetDy() + GRAVITY);
 	player->SetY(player->GetY() + player->GetDy() * deltaTime);

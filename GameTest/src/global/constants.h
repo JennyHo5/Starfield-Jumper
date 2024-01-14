@@ -40,8 +40,8 @@ const float PLAYER_HEIGHT = 80.0f;
 const float PlAYER_WALKING_SPEED = 0.2f;
 const float PLAYER_JUMP_VELOCITY = 0.4f;
 
-const float SLIME_WIDTH = 50.0f;
-const float SLIME_HEIGHT = 35.0f;
+const float SLIME_WIDTH = 55.0f;
+const float SLIME_HEIGHT = 40.0f;
 const float SLIME_RUNNING_SPEED = 0.05f;
 const int SLIME_MOVING_DURATION = 2000;
 
@@ -84,5 +84,6 @@ enum class State {
 	SLIME_DEAD,
 	SLIME_CHASING,
 	// Bat states
-	BAT_FLYING
+	BAT_FLYING,
+	BAT_DEAD
 };

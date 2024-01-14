@@ -4,14 +4,19 @@
 
 Player::Player(float x, float y, GameLevel& level):
 	Entity(x, y, PLAYER_WIDTH, PLAYER_HEIGHT, 
-		App::CreateSprite(".\\graphics\\player.png", 9, 5),
+		App::CreateSprite(".\\graphics\\player.png", 9, 10),
 		level)
 {
-	sprite->CreateAnimation(IDLE, ANIMATION_SPEED, { 0, 1, 2, 3, 4, 5 });
-	sprite->CreateAnimation(WALKING, ANIMATION_SPEED, { 9, 10, 11, 12, 13, 14, 15, 16 });
-	sprite->CreateAnimation(JUMP, ANIMATION_SPEED * 3, {18, 19, 20});
-	sprite->CreateAnimation(FALLING, ANIMATION_SPEED * 3, { 22, 23, 24, 27 });
-	sprite->CreateAnimation(DEAD, ANIMATION_SPEED * 2, { 28, 29, 30, 31, 32, 33, 34, 35});
+	sprite->CreateAnimation(IDLE_RIGHT, ANIMATION_SPEED, { 0, 1, 2, 3, 4, 5 });
+	sprite->CreateAnimation(WALKING_RIGHT, ANIMATION_SPEED, { 9, 10, 11, 12, 13, 14, 15, 16 });
+	sprite->CreateAnimation(JUMP_RIGHT, ANIMATION_SPEED * 3, {18, 19, 20});
+	sprite->CreateAnimation(FALLING_RIGHT, ANIMATION_SPEED * 3, { 22, 23, 24, 27 });
+	sprite->CreateAnimation(DEAD_RIGHT, ANIMATION_SPEED * 2, { 28, 29, 30, 31, 32, 33, 34, 35});
+	sprite->CreateAnimation(IDLE_LEFT, ANIMATION_SPEED, { 53, 52, 51, 50, 49, 48 });
+	sprite->CreateAnimation(WALKING_LEFT, ANIMATION_SPEED, { 62, 61, 60, 59, 58, 57, 56, 55 });
+	sprite->CreateAnimation(JUMP_LEFT, ANIMATION_SPEED * 3, {71, 70, 69});
+	sprite->CreateAnimation(FALLING_LEFT, ANIMATION_SPEED * 3, { 67, 66, 65, 80 });
+	sprite->CreateAnimation(DEAD_LEFT, ANIMATION_SPEED * 2, {79, 78, 76, 75, 74, 73, 72});
 	stateMachine.AddState(State::IDLE, std::make_unique<PlayerIdleState>(this));
 	stateMachine.AddState(State::WALKING, std::make_unique<PlayerWalkingState>(this));
 	stateMachine.AddState(State::JUMP, std::make_unique<PlayerJumpState>(this));

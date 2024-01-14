@@ -5,7 +5,10 @@ PlayerIdleState::PlayerIdleState(Player* player) : player(player) {
 }
 
 void PlayerIdleState::Enter() {
-	player->SetAnimation(PlayerAnimation::IDLE);
+	if (player->GetDirection() == 0)
+		player->SetAnimation(PlayerAnimation::IDLE_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::IDLE_RIGHT);
 }
 
 void PlayerIdleState::Update(float deltaTime) {

@@ -5,7 +5,10 @@ PlayerDeadState::PlayerDeadState(Player* player) : player(player) {
 }
 
 void PlayerDeadState::Enter() {
-	player->SetAnimation(PlayerAnimation::DEAD);
+	if (player->GetDirection() == 0)
+	player->SetAnimation(PlayerAnimation::DEAD_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::DEAD_RIGHT);
 	player->SetDead();
 }
 

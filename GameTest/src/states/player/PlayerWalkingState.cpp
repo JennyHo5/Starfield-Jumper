@@ -5,11 +5,14 @@ PlayerWalkingState::PlayerWalkingState(Player* player) : player(player) {
 }
 
 void PlayerWalkingState::Enter() {
-	player->SetAnimation(PlayerAnimation::WALKING);
 	App::PlaySoundW(".\\sounds\\stepdirt.wav", true);
 }
 
 void PlayerWalkingState::Update(float deltaTime) {
+	if (player->GetDirection() == 0)
+		player->SetAnimation(PlayerAnimation::WALKING_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::WALKING_RIGHT);
 
 
 	if (!(App::IsKeyPressed(VK_LEFT) || App::IsKeyPressed(VK_RIGHT) || App::IsKeyPressed(0x41) || App::IsKeyPressed(0x44))) {
@@ -19,6 +22,7 @@ void PlayerWalkingState::Update(float deltaTime) {
 		player->CheckBottomCollisions();
 
 		if (App::IsKeyPressed(VK_LEFT) || App::IsKeyPressed(0x41)) {
+			printf("player walking left\n");
 			player->SetX(player->GetX() - PlAYER_WALKING_SPEED * deltaTime);
 			player->SetDirection(0);
 			player->CheckLeftCollisions();

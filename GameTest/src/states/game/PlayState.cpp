@@ -100,6 +100,7 @@ void PlayState::SpawnEnemies() {
 					printf("Added bat at column %d\n", x);
 					std::unique_ptr<Bat> bat = std::make_unique<Bat>((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
 					bat->GetStateMachine()->AddState(State::BAT_FLYING, std::make_unique<BatFlyingState>(gameLevel->GetTileMap(), player.get(), bat.get()));
+					bat->GetStateMachine()->AddState(State::BAT_DEAD, std::make_unique<BatDeadState>(bat.get()));
 					bat->GetStateMachine()->ChangeState(State::BAT_FLYING);
 					gameLevel->AddEntity(std::move(bat));
 				}

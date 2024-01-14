@@ -5,10 +5,14 @@ PlayerFallingState::PlayerFallingState(Player* player) : player(player) {
 }
 
 void PlayerFallingState::Enter() {
-	player->SetAnimation(PlayerAnimation::FALLING);
 }
 
 void PlayerFallingState::Update(float deltaTime) {
+	if (player->GetDirection() == 0)
+		player->SetAnimation(PlayerAnimation::FALLING_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::FALLING_RIGHT);
+
 	// Update by gravity
 	player->SetDy(player->GetDy() + GRAVITY);
 	player->SetY(player->GetY() + player->GetDy() * deltaTime);

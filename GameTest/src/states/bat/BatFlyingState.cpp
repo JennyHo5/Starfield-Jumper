@@ -67,6 +67,16 @@ void BatFlyingState::Update(float deltaTime) {
 }
 
 void BatFlyingState::HandleCollision() {
-	if (bat->Collides(player))
-		player->ChangeState(State::DEAD);
+	// If bat collides with player
+	if (bat->Collides(player)) {
+		// If player is falling on bat, set slime to dead
+		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
+		{
+			bat->ChangeState(State::BAT_DEAD);
+			player->AddScore(200);
+		}
+		// Else, set player to dead
+		else if (!dynamic_cast<PlayerJumpState*>(player->GetStateMachine()->GetCurrentState()))
+			player->ChangeState(State::DEAD);
+	}
 }

@@ -5,7 +5,10 @@ PlayerWinState::PlayerWinState(Player* player) : player(player) {
 }
 
 void PlayerWinState::Enter() {
-	player->SetAnimation(PlayerAnimation::IDLE);
+	if (player->GetDirection() == 0)
+		player->SetAnimation(PlayerAnimation::IDLE_LEFT);
+	else
+		player->SetAnimation(PlayerAnimation::IDLE_RIGHT);
 	player->SetWin();
 }
 

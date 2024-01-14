@@ -18,12 +18,18 @@ class PlayerWinState;
 
 enum PlayerAnimation
 {
-    IDLE,
-    WALKING,
-    JUMP,
-    FALLING,
-    ATTACK,
-    DEAD
+    IDLE_LEFT,
+    WALKING_LEFT,
+    JUMP_LEFT,
+    FALLING_LEFT,
+    ATTACK_LEFT,
+    DEAD_LEFT,
+    IDLE_RIGHT,
+    WALKING_RIGHT,
+    JUMP_RIGHT,
+    FALLING_RIGHT,
+    ATTACK_RIGHT,
+    DEAD_RIGHT,
 };
 
 class Player : public Entity
