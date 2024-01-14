@@ -58,6 +58,6 @@ protected:
 	CSimpleSprite* sprite;
 	bool direction; // left = 0, right = 1
 	StateMachine stateMachine;
-	GameLevel& level;// Reference to level for tests against other entities + objects
+	GameLevel& level;// Reference to level for tests against other entities and tilemap
 };
 

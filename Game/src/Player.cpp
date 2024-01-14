@@ -42,7 +42,7 @@ void Player::CheckLeftCollisions() {
 	if (x <= width / 2)
 		x = width / 2;
 
-	// Check for two tiles collision
+	// Check for two left tiles collision
 	Tile* tileTopLeft = level.GetTileMap()->PointToTile(x - width / 2, y + height / 2);
 	Tile* tileBottomLeft = level.GetTileMap()->PointToTile(x - width / 2, y - height / 2);
 
@@ -62,7 +62,7 @@ void Player::CheckRightCollisions() {
 	}
 
 
-	// Check for two tiles collision
+	// Check for two right tiles collision
 	Tile* tileTopRight = level.GetTileMap()->PointToTile(x + width / 2, y + height / 2);
 	Tile* tileBottomRight = level.GetTileMap()->PointToTile(x + width / 2, y - height / 2);
 
@@ -99,5 +99,4 @@ void Player::CheckUpCollisions() {
 	if (y >= MAP_HEIGHT * TILE_SIZE) {
 		y = MAP_HEIGHT * TILE_SIZE;
 	}
-
 }

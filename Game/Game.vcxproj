@@ -254,15 +254,26 @@
     <ClCompile Include="src\tilesystem\TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="graphics\background\background_layer_1.png" />
-    <Image Include="graphics\background\background_layer_2.png" />
-    <Image Include="graphics\background\background_layer_3.png" />
+    <Image Include="graphics\background\background_0.png" />
+    <Image Include="graphics\background\background_1.png" />
+    <Image Include="graphics\background\background_2.png" />
     <Image Include="graphics\char_blue.png" />
     <Image Include="graphics\decorations\grass_1.png" />
     <Image Include="graphics\decorations\grass_2.png" />
     <Image Include="graphics\decorations\grass_3.png" />
+    <Image Include="graphics\decor\big-tree.png" />
+    <Image Include="graphics\decor\platform_decor_large.png" />
+    <Image Include="graphics\decor\platform_decor_middle.png" />
+    <Image Include="graphics\decor\platform_decor_small.png" />
+    <Image Include="graphics\decor\rock.png" />
+    <Image Include="graphics\decor\sign.png" />
+    <Image Include="graphics\decor\small-tree.png" />
     <Image Include="graphics\eagle.png" />
+    <Image Include="graphics\enemies\bat.png" />
+    <Image Include="graphics\enemies\slime.png" />
     <Image Include="graphics\oposum.png" />
+    <Image Include="graphics\player.png" />
+    <Image Include="graphics\stringstar_fields_sheet.png" />
     <Image Include="graphics\tileset.png" />
     <Image Include="graphics\tileset_full.png" />
     <Image Include="graphics\tileset_long.png" />
@@ -270,7 +281,12 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\background-music.wav" />
+    <Media Include="sounds\bat.wav" />
+    <Media Include="sounds\bgm.wav" />
+    <Media Include="sounds\jumpland.wav" />
     <Media Include="sounds\slime.wav" />
+    <Media Include="sounds\stepdirt.wav" />
+    <Media Include="sounds\stepdirt_1.wav" />
     <Media Include="sounds\sword-unsheathe.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
