@@ -96,8 +96,8 @@ void Player::CheckBottomCollisions() {
 
 void Player::CheckUpCollisions() {
 	// Check if player reachs the top of the map
-	if (y >= MAP_HEIGHT * TILE_SIZE - PLAYER_HEIGHT / 2) {
-		y = MAP_HEIGHT * TILE_SIZE - PLAYER_HEIGHT / 2;
+	if (y >= MAP_HEIGHT * TILE_SIZE) {
+		y = MAP_HEIGHT * TILE_SIZE;
 	}
 
 }
