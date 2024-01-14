@@ -11,7 +11,6 @@ class SlimeMovingState :
 {
 public:
     SlimeMovingState(const TileMap*, Player*, Slime *);
-    void Enter() override;
     void Update(float deltaTime) override;
     void HandleCollision();
 

@@ -13,8 +13,6 @@ SlimeMovingState::SlimeMovingState(const TileMap* tm, Player* p, Slime* o):
 	movingTimer = 0;
 }
 
-void SlimeMovingState::Enter() {
-}
 
 void SlimeMovingState::Update(float deltaTime) {
 	HandleCollision();
@@ -110,7 +108,7 @@ void SlimeMovingState::Update(float deltaTime) {
 	// Calculate difference between slime and player on X axis, only chase if <= 5 tiles
 	float diff = std::abs(player->GetX() - slime->GetX());
 
-	if (diff < TILE_SIZE * 5) {
+	if (diff <= TILE_SIZE * 5) {
 		slime->ChangeState(State::SLIME_CHASING);
 	}
 
