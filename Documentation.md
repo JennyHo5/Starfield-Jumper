@@ -4,10 +4,6 @@
 
 My game project is organized into a Game object, which includes a state machine, with two main states: Start State and Play State. In GameLoop.cpp, Game is initalized, updated, rendered and exited.
 
-To run the game, open Game.sln in Visual Studio, then click on "Start without Debugging" button or press ctrl + F5.
-
-When running the game, to control the character, player can only use direction keys (WASD and Up/Down/Left/Right) to move and Space key to jump.
-
 ### Pre-Programming Code Acknowlegement
 The following system/engine blocks are pre-programmed before Jan 12, 2024 by me: 
 - Tile system (Tile class and TileMap class)
@@ -82,19 +78,3 @@ The Slime entity includes:
 The Bat entity includes:
 
 - **Bat Machine**: Manages states like Flying, Diving, Dead, etc.
-
-## Credits
-
-- Player's sprite:
-    - https://lucky-loops.itch.io/character-satyr
-- Slime's sprite:
-    - https://rvros.itch.io/pixel-art-animated-slime
-- Tile and envirnment sprite:
-    - https://trixelized.itch.io/starstring-fields
-- Sound effects:
-    - https://opengameart.org/content/50-rpg-sound-effects
-    - https://opengameart.org/content/jump-landing-sound
-    - https://opengameart.org/content/foot-walking-step-sounds-on-stone-water-snow-wood-and-dirt
-- Background music:
-    - https://opengameart.org/content/enchanted-festival
-
