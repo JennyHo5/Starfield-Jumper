@@ -83,7 +83,9 @@ void Player::CheckBottomCollisions() {
 
 
 	if (tileBottomLeft && tileBottomRight) {
+		// If bottom tiles are not tops
 		if (!tileBottomLeft->Collidable() && !tileBottomRight->Collidable()) {
+			// If bottom tiles are not platforms
 			if (!tileBottomLeft->IsPlatform() && !tileBottomRight->IsPlatform()) {
 				SetDy(0);
 				ChangeState(State::FALLING);

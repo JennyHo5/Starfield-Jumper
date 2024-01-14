@@ -67,8 +67,8 @@ void PlayState::Render() {
 	// If player wins, show win UI
 	if (player->GetIsWin())
 	{
-		App::Print(20, WINDOW_HEIGHT - 20, "You win!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-		App::Print(20, WINDOW_HEIGHT - 40, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(WINDOW_WIDTH / 2 - 60, WINDOW_HEIGHT / 2 + 20, "You win!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(WINDOW_WIDTH / 2 - 120, WINDOW_HEIGHT / 2, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	}
 }
 
