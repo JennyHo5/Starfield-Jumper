@@ -2,12 +2,9 @@
 #include <windows.h> 
 #include <math.h>  
 #include "app/app.h"
-#include "src/StateMachine.h"
-#include "src/states/game/PlayState.h"
-#include "src/states/game/StartState.h"
 #include "src/Game.h"
 
-// the main game
+// The main game object
 Game game;
 
 void Init()
