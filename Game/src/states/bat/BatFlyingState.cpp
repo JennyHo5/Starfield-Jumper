@@ -75,8 +75,8 @@ void BatFlyingState::HandleCollision() {
 			bat->ChangeState(State::BAT_DEAD);
 			player->AddScore(200);
 		}
-		// Else if player is not jumping, set player to dead
-		else if (player->GetStateMachine()->GetCurrentState()->GetType() != State::JUMP)
+		// Else set player to dead
+		else
 			player->ChangeState(State::DEAD);
 	}
 }
