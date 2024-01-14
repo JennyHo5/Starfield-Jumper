@@ -54,7 +54,7 @@ The Game Level's variables include:
 
 - **Tilemap**: Represents the layout of the game world.
 - **Entity**: Represents living entities present in the game, including Slime and Bat. 
-    - The Entity's position, dimension and sprite
+    - The Entity's position, dimension and sprite. 
     - The Entity's own StateMachine, direction, and boolean value representing it is dead or not.
 - **GameObject**: Represents inanimate objects present in the game, including rock, tree, and grass, etc. 
     - The GameObject's position, dimension and sprite.
