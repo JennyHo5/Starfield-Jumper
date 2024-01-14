@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 #include "states/BaseState.h"
+#include "game.h"
+
+class Game;
 
 class StartState: public BaseState
 {

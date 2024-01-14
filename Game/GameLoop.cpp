@@ -8,32 +8,29 @@
 #include "src/Game.h"
 
 // State machine for the whole game
-StateMachine* gStateMachine = Game::GetInstance();
+Game game;
 
 void Init()
 {
 	//AllocConsole();
 	//freopen("CONOUT$", "w", stdout);
 
-	// Initialize state machine for the game
-	gStateMachine->AddState(State::START, std::make_unique<StartState>());
-	gStateMachine->AddState(State::PLAY, std::make_unique<PlayState>());
-	gStateMachine->ChangeState(State::START);
+	game.Init();
 }
 
 // deltaTime is the elapsed time since the last update in ms
 // This will be called at no greater frequency than the value of APP_MAX_FRAME_RATE
 void Update(float deltaTime)
 {
-	gStateMachine->Update(deltaTime);
+	game.Update(deltaTime);
 }
 
 void Render()
 {
-	gStateMachine->Render(); 
+	game.Render(); 
 }
 
 void Shutdown()
 {
-	gStateMachine->Exit();
+	game.Exit();
 }

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "StateMachine.h"
 
-StateMachine::StateMachine()
+StateMachine::StateMachine(): currentState(nullptr)
 {}
 
 void StateMachine::AddState(State state, std::unique_ptr<BaseState> stateObject) {

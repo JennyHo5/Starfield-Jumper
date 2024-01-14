@@ -1,7 +1,9 @@
 #pragma once
 #include "states\BaseState.h"
 #include "Player.h"
+#include "game.h"
 
+class Game;
 class Player;
 
 class PlayerDeadState : public BaseState

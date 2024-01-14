@@ -2,9 +2,6 @@
 #include "app/app.h"
 #include "global/constants.h"
 #include "global/Util.h"
-#include "Game.h"
-
-class Game;
 
 class BaseState
 {

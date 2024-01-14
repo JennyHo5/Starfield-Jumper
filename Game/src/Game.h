@@ -1,18 +1,26 @@
 #pragma once
 #include "StateMachine.h"
+#include "states/game/StartState.h"
+#include "states/game/PlayState.h"
+
 
 class StateMachine;
+class StartState;
+class PlayState;
 
 class Game
 {
 
 public:
-	// Function to get the single instance of StateMachine
-	static StateMachine* GetInstance();
+	Game();
+	void Init();
+	void Update(float deltaTime);
+	void Render();
+	void Exit();
+	static StateMachine* GetStateMachine();
 
 private: 
-	Game();
-	~Game();
-	static StateMachine* instance; // The single instance of the StateMachine
+
+	static std::unique_ptr<StateMachine> stateMachine;
 };
 
