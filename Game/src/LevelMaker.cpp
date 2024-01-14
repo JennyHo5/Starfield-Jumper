@@ -17,12 +17,13 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to just be emptyness for the column
-		if (GetRandom(4) == 1) {
+		if (GetRandom(2) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_EMPTY;
 			}
 
 		}
+		// Chance to generate grounds
 		else {
 			for (int y = 0; y < GROUND_HEIGHT - 1; y++) {
 				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
@@ -31,7 +32,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to generate a pillar
-		if (GetRandom(6) == 1) {
+		if (GetRandom(7) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT - 1 + PILLAR_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_GROUND[GetRandom(GROUND_NUMBER) - 1];
 			}
