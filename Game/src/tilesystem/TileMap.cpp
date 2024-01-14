@@ -29,7 +29,7 @@ void TileMap::Render() {
     }
 }
 
-Tile* TileMap::PointToTile(float x, float y) const {
+const Tile* TileMap::PointToTile(float x, float y) const {
     if (x < 0 || x >(width - 1) * TILE_SIZE || y < 0 || y > (height - 1) * TILE_SIZE)
         return nullptr;
     return tiles[floor(x / TILE_SIZE)][floor(y / TILE_SIZE)];

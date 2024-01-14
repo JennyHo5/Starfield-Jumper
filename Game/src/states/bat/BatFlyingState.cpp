@@ -35,7 +35,7 @@ void BatFlyingState::Update(float deltaTime) {
 		bat->SetX(bat->GetX() - speed * deltaTime);
 
 		// stop if there's a solid tile directly left
-		Tile* tileLeft = map->PointToTile(bat->GetX() - BAT_WIDTH / 2, bat->GetY());
+		const Tile* tileLeft = map->PointToTile(bat->GetX() - BAT_WIDTH / 2, bat->GetY());
 
 		if (tileLeft && tileLeft->IsTop()) {
 			bat->SetX(bat->GetX() + speed * deltaTime);
@@ -53,7 +53,7 @@ void BatFlyingState::Update(float deltaTime) {
 		bat->SetX(bat->GetX() + speed * deltaTime);
 
 		// stop if there's a solid tile directly right
-		Tile* tileRight = map->PointToTile(bat->GetX() + BAT_WIDTH / 2, bat->GetY());
+		const Tile* tileRight = map->PointToTile(bat->GetX() + BAT_WIDTH / 2, bat->GetY());
 
 		if (tileRight && tileRight->IsTop()) {
 			bat->SetX(bat->GetX() - speed * deltaTime);

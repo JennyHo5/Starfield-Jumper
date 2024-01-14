@@ -36,9 +36,9 @@ void SlimeMovingState::Update(float deltaTime) {
 		slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 
 		// stop if there's a missing tile on the floor to the left or a solid tile directly left
-		Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
-		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		const Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
+		const Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
+		const Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
 
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			// Slime is on the ground
@@ -74,9 +74,9 @@ void SlimeMovingState::Update(float deltaTime) {
 		slime->GetSprite()->SetAnimation(SLIME_MOVING_RIGHT);
 
 		// stop if there's a missing tile on the floor to the left or a solid tile directly left
-		Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
-		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		const Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
+		const Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
+		const Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
 
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			// Slime is on the ground

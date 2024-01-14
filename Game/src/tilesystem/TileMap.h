@@ -13,7 +13,7 @@ public:
 
     const std::vector<std::vector<Tile*>>* GetTiles() const { return &tiles; }
 
-    Tile* PointToTile(float x, float y) const;
+    const Tile* PointToTile(float x, float y) const;
 
 private:
     int width;

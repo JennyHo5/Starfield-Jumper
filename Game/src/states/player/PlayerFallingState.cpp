@@ -17,8 +17,8 @@ void PlayerFallingState::Update(float deltaTime) {
 	player->SetDy(player->GetDy() + GRAVITY);
 	player->SetY(player->GetY() + player->GetDy() * deltaTime);
 
-	Tile* tileBottomLeft = player->GetGameLevel()->GetTileMap()->PointToTile(player->GetX() - PLAYER_WIDTH / 2, player->GetY() - PLAYER_HEIGHT / 2);
-	Tile* tileBottomRight = player->GetGameLevel()->GetTileMap()->PointToTile(player->GetX() + PLAYER_WIDTH / 2, player->GetY() - PLAYER_HEIGHT / 2);
+	const Tile* tileBottomLeft = player->GetGameLevel()->GetTileMap()->PointToTile(player->GetX() - PLAYER_WIDTH / 2, player->GetY() - PLAYER_HEIGHT / 2);
+	const Tile* tileBottomRight = player->GetGameLevel()->GetTileMap()->PointToTile(player->GetX() + PLAYER_WIDTH / 2, player->GetY() - PLAYER_HEIGHT / 2);
 
 	// If we get a collision or platform beneath us, go into either walking or idle
 	if (tileBottomLeft && tileBottomRight 

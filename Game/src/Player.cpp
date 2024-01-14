@@ -43,8 +43,8 @@ void Player::CheckLeftCollisions() {
 		x = width / 2;
 
 	// Check for two left tiles collision
-	Tile* tileTopLeft = level.GetTileMap()->PointToTile(x - width / 2, y + height / 2);
-	Tile* tileBottomLeft = level.GetTileMap()->PointToTile(x - width / 2, y - height / 2);
+	const Tile* tileTopLeft = level.GetTileMap()->PointToTile(x - width / 2, y + height / 2);
+	const Tile* tileBottomLeft = level.GetTileMap()->PointToTile(x - width / 2, y - height / 2);
 
 	// Place player outside the x bounds on one of the tiles to reset the overlap
 	if (tileTopLeft && tileBottomLeft) {
@@ -63,8 +63,8 @@ void Player::CheckRightCollisions() {
 
 
 	// Check for two right tiles collision
-	Tile* tileTopRight = level.GetTileMap()->PointToTile(x + width / 2, y + height / 2);
-	Tile* tileBottomRight = level.GetTileMap()->PointToTile(x + width / 2, y - height / 2);
+	const Tile* tileTopRight = level.GetTileMap()->PointToTile(x + width / 2, y + height / 2);
+	const Tile* tileBottomRight = level.GetTileMap()->PointToTile(x + width / 2, y - height / 2);
 
 	// Place player outside the x bounds on one of the tiles to reset the overlap
 	if (tileTopRight && tileBottomRight) {
@@ -77,8 +77,8 @@ void Player::CheckRightCollisions() {
 void Player::CheckBottomCollisions() {
 	// Check for two tiles collision
 	y--; // Temprarliy shift player down one pixel to test if there is collisions at bottom
-	Tile* tileBottomLeft = level.GetTileMap()->PointToTile(x - width / 2, y - height / 2);
-	Tile* tileBottomRight = level.GetTileMap()->PointToTile(x + width / 2, y - height / 2);
+	const Tile* tileBottomLeft = level.GetTileMap()->PointToTile(x - width / 2, y - height / 2);
+	const Tile* tileBottomRight = level.GetTileMap()->PointToTile(x + width / 2, y - height / 2);
 	y++;
 
 

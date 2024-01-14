@@ -26,9 +26,9 @@ void SlimeChasingState::Update(float deltaTime) {
 		slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 
 		// Stop the slime is there is a missing tile on the floor to the left or a solid tile directly left
-		Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
-		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		const Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
+		const Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
+		const Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
 		
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			if (!tileLeft || !tileBottomLeft ||
@@ -53,9 +53,9 @@ void SlimeChasingState::Update(float deltaTime) {
 		slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
 
 		// stop if there's a missing tile on the floor to the right or a solid tile directly right
-		Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
-		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
+		const Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
+		const Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
+		const Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
 		
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			if (!tileRight || !tileBottomRight ||
