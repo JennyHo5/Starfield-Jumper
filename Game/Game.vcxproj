@@ -127,7 +127,7 @@
       <AdditionalDependencies>dxguid.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)\Game\lib\glut\bin\x64\*.dll" "$(OutputPath)" /Y</Command>
+      <Command>xcopy "$(SolutionDir)Game\lib\glut\bin\x64\*.dll" "$(OutputPath)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
