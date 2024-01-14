@@ -119,7 +119,7 @@ void SlimeMovingState::HandleCollision() {
 		// If player is falling on slime, set slime to dead
 		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
 			slime->ChangeState(State::DEAD);
-		else
+		else if (!dynamic_cast<PlayerJumpState*>(player->GetStateMachine()->GetCurrentState()))
 			player->ChangeState(State::DEAD);
 	}
 }

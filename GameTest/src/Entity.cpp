@@ -33,12 +33,12 @@ void Entity::Update(float deltaTime) {
 
 bool Entity::Collides(Entity* entity) const {
 	return !(x - width / 2 > entity->GetX() + entity->GetWidth() / 2 || entity->GetX() - entity->GetWidth() / 2 > x + width / 2 ||
-			y - height / 2 > entity->GetY() + entity->GetHeight() / 2 || entity->GetY() - entity->GetHeight() > y + height / 2);
+			y - height / 2 > entity->GetY() + entity->GetHeight() / 2 || entity->GetY() - entity->GetHeight() / 2 > y + height / 2);
 }
 
 void Entity::Render() {
 	sprite->Draw();
-	// DrawCollideBox();
+	DrawCollideBox();
 }
 
 void Entity::SetX(float newX) { 

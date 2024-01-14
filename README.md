@@ -6,7 +6,7 @@ My game project is organized into a state machine, with two main states: Start S
 
 ### Pre-Programming Code Acknowlegement
 The following system/engine blocks are pre-programmed before Jan 12, 2024 by me: 
-- The game's state machine
+- State machine class
 - Tile system (Tile class and TileMap class)
 - Entity class
 - Game Level class

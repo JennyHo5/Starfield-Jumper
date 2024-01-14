@@ -84,7 +84,7 @@ void SlimeChasingState::HandleCollision() {
 			player->AddScore(100);
 		}
 		// Else, set player to dead
-		else
+		else if (!dynamic_cast<PlayerJumpState*>(player->GetStateMachine()->GetCurrentState()))
 			player->ChangeState(State::DEAD);
 	}
 }

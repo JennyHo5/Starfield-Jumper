@@ -60,8 +60,8 @@ void PlayState::Render() {
 	// If player is dead, show dead UI
 	if (player->IsDead())
 	{
-		App::Print(20, WINDOW_HEIGHT - 20, "You are dead!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
-		App::Print(20, WINDOW_HEIGHT - 40, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(WINDOW_WIDTH / 2 - 60, WINDOW_HEIGHT/ 2 + 20, "You are dead!", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
+		App::Print(WINDOW_WIDTH / 2 - 120, WINDOW_HEIGHT / 2, "Press R to restart a new level", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	}
 
 	// If player wins, show win UI
@@ -79,7 +79,7 @@ void PlayState::SpawnEnemies() {
 	for (int x = 1; x < MAP_WIDTH - 8; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
 			if ((*tiles)[x][y]->Collidable() || (*tiles)[x][y]->IsPlatform()) {
-				if (GetRandom(7) == 1) {
+				if (GetRandom(5) == 1) {
 					printf("Added slime at column %d\n", x);
 					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, std::make_unique<SlimeMovingState>(gameLevel->GetTileMap(), player.get(), slime.get()));
