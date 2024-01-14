@@ -16,12 +16,13 @@ public:
 
     void Update(float deltaTime) override;
 
-
     void Render() override;
 
     void Exit() override {}
 
     int GetCurrentLevel() { return currentLevel; }
+
+    State GetType() const { return State::START; }
 
 private:
     CSimpleSprite* background1;

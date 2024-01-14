@@ -12,6 +12,8 @@ public:
 	PlayerFallingState(Player* player);
 	void Enter() override;
 	void Update(float deltaTime) override;
+	State GetType() const { return State::FALLING; }
+
 
 private:
 	Player* player;

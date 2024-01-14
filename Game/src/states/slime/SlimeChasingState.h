@@ -13,6 +13,7 @@ public:
     SlimeChasingState(const TileMap*, Player*, Slime*);
     void Update(float deltaTime) override;
     void HandleCollision();
+    State GetType() const { return State::SLIME_CHASING; }
 
 private:
     const TileMap* map;

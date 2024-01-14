@@ -17,7 +17,7 @@ void BatDeadState::Update(float deltaTime) {
 
 	// For the dead animation
 	animTimer += 1;
-	if (animTimer >= 15 * UPDATE_CALLS_PER_FRAME) {
+	if (animTimer > 15 * UPDATE_CALLS_PER_FRAME) {
 		bat->GetSprite()->SetAnimation(-1);
 		bat->SetDead();
 	}

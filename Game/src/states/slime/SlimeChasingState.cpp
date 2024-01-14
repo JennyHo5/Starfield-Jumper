@@ -78,13 +78,14 @@ void SlimeChasingState::HandleCollision() {
 	// If slime collides with player
 	if (slime->Collides(player)) {
 		// If player is falling on slime, set slime to dead
-		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
+		if (player->GetStateMachine()->GetCurrentState()->GetType() == State::FALLING)
 		{
 			slime->ChangeState(State::SLIME_DEAD);
 			player->AddScore(100);
 		}
-		// Else, set player to dead
-		else if (!dynamic_cast<PlayerJumpState*>(player->GetStateMachine()->GetCurrentState()))
+		// Else if player is not in jump state, set player to dead
+		else if (player->GetStateMachine()->GetCurrentState()->GetType() != State::JUMP)
 			player->ChangeState(State::DEAD);
+		// If player is in jump state, player should still be alive even if their boxes collide with each other
 	}
 }

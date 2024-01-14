@@ -12,6 +12,7 @@ public:
 	void Enter() override;
 	void Update(float deltaTime) override;
 	void Exit() override;
+	State GetType() const { return State::WALKING; }
 
 private:
 	Player* player;

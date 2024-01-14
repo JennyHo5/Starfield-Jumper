@@ -12,5 +12,7 @@ public:
     virtual void Update(float deltaTime) {}
     virtual void Render() {}
     virtual void Exit() {}
+
+    virtual State GetType() const = 0;
 };
 

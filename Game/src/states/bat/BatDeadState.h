@@ -11,6 +11,8 @@ public:
 	BatDeadState(Bat* bat);
 	void Enter() override;
 	void Update(float deltaTime) override;
+	State GetType() const { return State::BAT_DEAD; }
+
 
 private:
 	Bat* bat;

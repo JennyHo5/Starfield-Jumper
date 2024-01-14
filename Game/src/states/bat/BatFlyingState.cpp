@@ -70,13 +70,13 @@ void BatFlyingState::HandleCollision() {
 	// If bat collides with player
 	if (bat->Collides(player)) {
 		// If player is falling on bat, set slime to dead
-		if (dynamic_cast<PlayerFallingState*>(player->GetStateMachine()->GetCurrentState()))
+		if (player->GetStateMachine()->GetCurrentState()->GetType() == State::FALLING)
 		{
 			bat->ChangeState(State::BAT_DEAD);
 			player->AddScore(200);
 		}
-		// Else, set player to dead
-		else if (!dynamic_cast<PlayerJumpState*>(player->GetStateMachine()->GetCurrentState()))
+		// Else if player is not jumping, set player to dead
+		else if (player->GetStateMachine()->GetCurrentState()->GetType() != State::JUMP)
 			player->ChangeState(State::DEAD);
 	}
 }

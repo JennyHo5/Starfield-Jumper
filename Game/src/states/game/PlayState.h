@@ -21,7 +21,7 @@ public:
 
     void SpawnEnemies();
 
-
+    State GetType() const { return State::PLAY; }
 
 private:
     CSimpleSprite* background1;

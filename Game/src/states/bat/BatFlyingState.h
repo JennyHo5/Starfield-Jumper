@@ -14,6 +14,8 @@ public:
     void Update(float deltaTime) override;
 
     void HandleCollision();
+    State GetType() const { return State::BAT_FLYING; }
+
 
 private:
     const TileMap* map;
