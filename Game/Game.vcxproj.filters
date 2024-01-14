@@ -112,11 +112,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt">
-      <Filter>API</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="graphics\char_blue.png" />
     <Image Include="graphics\eagle.png" />
     <Image Include="graphics\oposum.png" />

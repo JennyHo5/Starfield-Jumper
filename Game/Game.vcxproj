@@ -174,9 +174,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="src\states\bat\BatDeadState.h" />
     <ClInclude Include="src\states\player\PlayerWinState.h" />
     <ClInclude Include="src\GameObject.h" />
