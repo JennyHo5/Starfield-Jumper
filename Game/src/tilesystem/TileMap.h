@@ -2,6 +2,7 @@
 #include "Tile.h"
 #include <vector>
 
+// Represents the layout of the game world
 class TileMap {
 public:
     TileMap(int width, int height);

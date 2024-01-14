@@ -5,6 +5,7 @@
 
 class Game;
 
+// Initial state when the game is launched
 class StartState: public BaseState
 {
 public:

@@ -1,6 +1,7 @@
 #pragma once
 #include "App\app.h"
 
+// Represents inanimate objects present in the game, including rock, tree, and grass, etc. 
 class GameObject
 {
 

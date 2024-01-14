@@ -24,7 +24,7 @@ The main game's state machine manages the overall flow of the game and transitio
 ### Play State
 
 The Play State's variables include:
-- **LevelMaker**: Makes a GameLevel randomly using unique algorithms.
+- **LevelMaker**: Makes a Game Level randomly using algorithms.
 - **GameLevel**: Represents the game level, including map, entities and game objects.
 - **Player**: Represents the character that could be controlled by the player.
 

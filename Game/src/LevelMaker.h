@@ -3,6 +3,7 @@
 #include "global/Util.h"
 #include "GameLevel.h"
 
+// Makes a Game Level randomly using algorithms
 class LevelMaker
 {
 

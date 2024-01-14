@@ -3,6 +3,7 @@
 #include "global/constants.h"
 #include "global/Util.h"
 
+// The Base State is an abstract base class for all State classes.
 class BaseState
 {
 public:

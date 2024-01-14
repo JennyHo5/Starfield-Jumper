@@ -5,6 +5,7 @@
 #include "enemy/Slime.h"
 #include "enemy/Bat.h"
 
+// The main state where the game is actively played
 class PlayState: public BaseState
 {
 public:

@@ -5,6 +5,7 @@
 
 class GameLevel;
 
+// Represents living entities present in the game, including Player, Slime and Bat
 class Entity
 {
 public:
