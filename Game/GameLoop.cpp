@@ -7,14 +7,11 @@
 #include "src/states/game/StartState.h"
 #include "src/Game.h"
 
-// State machine for the whole game
+// the main game
 Game game;
 
 void Init()
 {
-	//AllocConsole();
-	//freopen("CONOUT$", "w", stdout);
-
 	game.Init();
 }
 

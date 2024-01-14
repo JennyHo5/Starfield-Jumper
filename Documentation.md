@@ -4,6 +4,8 @@
 
 My game project is organized into a Game object, which includes a state machine, with two main states: Start State and Play State. In GameLoop.cpp, Game is initalized, updated, rendered and exited.
 
+Note: In Visual Studio, to display the code structure more clearly, please use the "Show All File" button in Solution Explorer to show the project's folders instead of filters.
+
 ### Pre-Programming Code Acknowlegement
 The following system/engine blocks are pre-programmed before Jan 12, 2024 by me: 
 - Tile system (Tile class and TileMap class)
