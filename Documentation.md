@@ -24,13 +24,13 @@ The main game's state machine manages the overall flow of the game and transitio
 ### Play State
 
 The Play State's variables include:
-- **LevelMaker**: Make a GameLevel randomly using unique algorithms.
+- **LevelMaker**: Makes a GameLevel randomly using unique algorithms.
 - **GameLevel**: Represents the game level, including map, entities and game objects.
-- **Player**: Represents the character that could controlled by the player.
+- **Player**: Represents the character that could be controlled by the player.
 
 The Play State's functions include:
 - **Enter**, **Update**, **Render**, **Exit** for game loop.
-- **SpawnEnemies**: Add enemy entities (slime, bat) to the game level.
+- **SpawnEnemies**: Add enemy entities (slime, bat) using random algorithms to the game level.
 
 ### Level Maker
 
@@ -44,24 +44,40 @@ The Level Maker's variables include:
 - **NewLevel**: A new GameLevel that is generated and will be passed to the Play State.
 
 The Level Maker's functions include:
-- **GenerateData**: Generating MapData using algorithms that loop through the whole map and generate different tile's ID at the 2D vector randomly.
-- **GenerateDecor**: Adding decorations (rock, grass, tree, etc) as Game Objects using algorithms that loop through the whole map and add them to different locations randomly.
-- **Generate**: Based on the return values of GenerateData and GenerateDecor during runtime, generate a new Game Level and return it.
+- **GenerateData**: Returns mapData by looping through the whole map and generate different tile's ID at the 2D vector randomly.
+- **GenerateDecor**: Adds decorations (rock, grass, tree, etc) as Game Objects by looping through the whole map and adding them to different locations randomly.
+- **Generate**: Based on the return values of GenerateData and GenerateDecor during runtime, generates a new Game Level and return it.
 
 ### Game Level
 
 The Game Level's variables include:
 
 - **Tilemap**: Represents the layout of the game world.
-- **Entity**: Various living entities present in the game, including Slime and Bat. 
+- **Entity**: Represents living entities present in the game, including Slime and Bat. 
     - The Entity's position, dimension and sprite
     - The Entity's own StateMachine, direction, and boolean value representing it is dead or not.
 - **GameObject**: Represents inanimate objects present in the game, including rock, tree, and grass, etc. 
     - The GameObject's position, dimension and sprite.
 
+### State Machine
+
+The State Machine's variables include:
+
+- A map including pairs of State names and objects.
+- A pointer representing the current state.
+
+The State Machine's functions include:
+
+- **AddState**: Adds a new State object it the map.
+- **ChangeState**: Change the current state to another state specified.
+
+### Base State
+
+The Base State is an abstract base class for all State classes. It includes virtual funtions that can be overridden by specific states.
+
 ### Player Entity
 
-The Player entity includes:
+The Player entity's variables include:
 
 - **State Machine**: Manages different states such as Idle, Walking, Jump, Falling, Dead, Win, etc.
 - **score**: Represents the score player gets from elimilating Slime or Bat.
@@ -69,12 +85,12 @@ The Player entity includes:
 
 ### Slime Entity
 
-The Slime entity includes:
+The Slime entity's variables include:
 
 - **State Machine**: Manages states like Moving, Chasing, Dead, etc.
 
 ### Bat Entity
 
-The Bat entity includes:
+The Bat entity's variables include:
 
-- **Bat Machine**: Manages states like Flying, Diving, Dead, etc.
+- **State Machine**: Manages states like Flying, Dead, etc.
