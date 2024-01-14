@@ -25,7 +25,7 @@ private:
     CSimpleSprite* background1;
     CSimpleSprite* background2;
     CSimpleSprite* background3;
-    float camX;
+    float camX; // the X axis of the camera
     float backgroundX;
     float backgroundY;
 
