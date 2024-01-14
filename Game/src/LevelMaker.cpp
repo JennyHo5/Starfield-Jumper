@@ -6,7 +6,6 @@ LevelMaker::LevelMaker() : width(MAP_WIDTH), height(MAP_HEIGHT)
 }
 
 std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
-	printf("Generating Map Data from Level Maker\n");
 	// Create an 2D array, lay out the empty tiles first
 	std::vector<std::vector<int>> mapData(MAP_WIDTH, std::vector<int>(MAP_HEIGHT, 0));
 
