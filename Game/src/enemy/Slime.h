@@ -11,9 +11,12 @@ class SlimeChasingState;
 
 enum SlimeAnimation
 {
-    SLIME_MOVING,
-    SLIME_DEAD,
-    SLIME_CHASING
+    SLIME_MOVING_LEFT,
+    SLIME_DEAD_LEFT,
+    SLIME_CHASING_LEFT,
+    SLIME_MOVING_RIGHT,
+    SLIME_DEAD_RIGHT,
+    SLIME_CHASING_RIGHT
 };
 
 class Slime :

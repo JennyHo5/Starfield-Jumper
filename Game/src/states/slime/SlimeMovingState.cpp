@@ -14,7 +14,6 @@ SlimeMovingState::SlimeMovingState(const TileMap* tm, Player* p, Slime* o):
 }
 
 void SlimeMovingState::Enter() {
-	slime->GetSprite()->SetAnimation(SLIME_MOVING);
 }
 
 void SlimeMovingState::Update(float deltaTime) {
@@ -33,19 +32,21 @@ void SlimeMovingState::Update(float deltaTime) {
 		movingDuration = GetRandom(SLIME_MOVING_DURATION);
 		movingTimer = 0;
 	}
+	// Slime is moving left
 	else if (slime->GetDirection() == 0) {
+		slime->GetSprite()->SetAnimation(SLIME_MOVING_LEFT);
 		slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 
 		// stop if there's a missing tile on the floor to the left or a solid tile directly left
 		Tile* tileLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_HEIGHT / 2);
+		Tile* tileBottomLeft = map->PointToTile(slime->GetX() - SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
 		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
 
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			// Slime is on the ground
 			if (!tileLeft || !tileBottomLeft ||
-				(tileLeft->Collidable() || !tileBottomLeft->Collidable()))
-			{
+				(tileLeft && tileBottomLeft
+					&& (tileLeft->Collidable() || !tileBottomLeft->Collidable()))) {
 				slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
 				//Reset direction
 				movingDirection = 1;
@@ -54,7 +55,7 @@ void SlimeMovingState::Update(float deltaTime) {
 				movingTimer = 0;
 			}
 		}
-		else {
+		else if (tileBottom && tileBottom->IsPlatform()) {
 			// Slime is on the platform
 			if (!tileLeft || !tileBottomLeft ||
 				!tileBottomLeft->IsPlatform())
@@ -69,18 +70,20 @@ void SlimeMovingState::Update(float deltaTime) {
 		}
 
 	}
+	// Slime is moving right
 	else {
 		slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
+		slime->GetSprite()->SetAnimation(SLIME_MOVING_RIGHT);
 
 		// stop if there's a missing tile on the floor to the left or a solid tile directly left
 		Tile* tileRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY());
-		Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_HEIGHT / 2);
+		Tile* tileBottomRight = map->PointToTile(slime->GetX() + SLIME_WIDTH / 2, slime->GetY() - SLIME_WIDTH / 2);
 		Tile* tileBottom = map->PointToTile(slime->GetX(), slime->GetY() - TILE_SIZE);
-		
+
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			// Slime is on the ground
 			if (!tileRight || !tileBottomRight ||
-				(tileRight->Collidable() || !tileBottomRight->Collidable())) {
+				(tileRight && tileBottomRight && (tileRight->Collidable() || !tileBottomRight->Collidable()))) {
 				slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 				//Reset direction
 				movingDirection = 0;
@@ -90,7 +93,7 @@ void SlimeMovingState::Update(float deltaTime) {
 			}
 		}
 		// Slime is on the platform
-		else {
+		else if (tileBottom && tileBottom->IsPlatform()) {
 			if (!tileRight || !tileBottomRight ||
 				!tileBottomRight->IsPlatform())
 			{

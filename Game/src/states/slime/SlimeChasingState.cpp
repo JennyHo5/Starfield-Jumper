@@ -6,13 +6,13 @@ SlimeChasingState::SlimeChasingState(const TileMap* tm, Player* p, Slime* o) :
 {
 }
 
-void SlimeChasingState::Enter() {
-	printf("Slime enter chasing state\n");
-	slime->GetSprite()->SetAnimation(SLIME_CHASING);
-}
-
 void SlimeChasingState::Update(float deltaTime) {
 	HandleCollision();
+
+	if (slime->GetDirection() == 0)
+		slime->GetSprite()->SetAnimation(SLIME_CHASING_LEFT);
+	else
+		slime->GetSprite()->SetAnimation(SLIME_CHASING_RIGHT);
 
 	// Calculate difference between slime and player on X axis, only chase if <= 5 tiles
 	float diff = std::abs(player->GetX() - slime->GetX());
