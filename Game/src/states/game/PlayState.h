@@ -21,6 +21,8 @@ public:
 
     void SpawnEnemies();
 
+
+
 private:
     CSimpleSprite* background1;
     CSimpleSprite* background2;

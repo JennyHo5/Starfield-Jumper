@@ -15,11 +15,12 @@ PlayState::~PlayState() {
 }
 
 void PlayState::Enter() {
-	printf("Entering PlayState\n");
 	App::PlaySoundW(".\\sounds\\bgm.wav", true);
 
-	// Generate new gamelevel and player
+	// Generate new gamelevel using LevelMaker
 	gameLevel = levelMaker.Generate();
+
+	// Make a new Player object, pass in gameLevel as reference
 	player = std::make_unique<Player>(TILE_SIZE / 2, WINDOW_WIDTH / 2, *gameLevel);
 
 	// Reset background and camera positions
@@ -29,7 +30,7 @@ void PlayState::Enter() {
 	background1->GetPosition(backgroundX, backgroundY);
 	camX = 0;
 
-	// Add enemies to the gameLevel
+	// Add enemy entities (slime, bat) to the gameLevel
 	SpawnEnemies();
 }
 
@@ -39,6 +40,7 @@ void PlayState::Update(float deltaTime) {
 
 	if (player)
 		player->Update(deltaTime);
+
 	if (gameLevel)
 		gameLevel->Update(deltaTime);
 }
@@ -54,6 +56,7 @@ void PlayState::Render() {
 	gameLevel->Render();
 	player->Render();
 	
+	// Basic UI
 	App::Print(WINDOW_WIDTH - 200, WINDOW_HEIGHT - 20, "Current Score: ", 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 	App::Print(WINDOW_WIDTH - 60, WINDOW_HEIGHT - 20, std::to_string(player->GetScore()).c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_9_BY_15);
 
@@ -73,14 +76,14 @@ void PlayState::Render() {
 }
 
 void PlayState::SpawnEnemies() {
+	// Get tiles as a const pointer as a reference to spawn enemies
 	const std::vector<std::vector<Tile*>>* tiles = gameLevel->GetTileMap()->GetTiles();
 
 	// Spawn slimes
 	for (int x = 1; x < MAP_WIDTH - 8; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			if ((*tiles)[x][y]->Collidable() || (*tiles)[x][y]->IsPlatform()) {
+			if ((*tiles)[x][y]->IsTop() || (*tiles)[x][y]->IsPlatform()) {
 				if (GetRandom(5) == 1) {
-					printf("Added slime at column %d\n", x);
 					std::unique_ptr<Slime> slime = std::make_unique<Slime>((x + 1) * TILE_SIZE - SLIME_WIDTH / 2, (y + 1) * TILE_SIZE + SLIME_HEIGHT / 2, *gameLevel);
 					slime->GetStateMachine()->AddState(State::SLIME_MOVING, std::make_unique<SlimeMovingState>(gameLevel->GetTileMap(), player.get(), slime.get()));
 					slime->GetStateMachine()->AddState(State::SLIME_DEAD, std::make_unique<SlimeDeadState>(slime.get()));
@@ -92,12 +95,12 @@ void PlayState::SpawnEnemies() {
 		}
 	}
 
-	// Spawn eagles
+	// Spawn bats
 	for (int x = 1; x < MAP_WIDTH; x++) {
 		for (int y = MAP_HEIGHT * 2/3; y < MAP_HEIGHT - 1; y++) {
 			if ((*tiles)[x][y]->GetID() == TILE_ID_EMPTY) {
 				if (GetRandom(20) == 1) {
-					printf("Added bat at column %d\n", x);
+					// Add Bat at column x
 					std::unique_ptr<Bat> bat = std::make_unique<Bat>((x + 1) * TILE_SIZE - BAT_WIDTH / 2, (y + 1) * TILE_SIZE + BAT_HEIGHT / 2, *gameLevel);
 					bat->GetStateMachine()->AddState(State::BAT_FLYING, std::make_unique<BatFlyingState>(gameLevel->GetTileMap(), player.get(), bat.get()));
 					bat->GetStateMachine()->AddState(State::BAT_DEAD, std::make_unique<BatDeadState>(bat.get()));
@@ -154,7 +157,6 @@ void PlayState::Translate() {
 }
 
 void PlayState::Exit() {
-	printf("Exiting Play State\n");
 	App::StopSound(".\\sounds\\bgm.wav");
 	player.reset();
 	gameLevel.reset();

@@ -20,7 +20,7 @@ void Tile::Render() {
 	sprite->Draw();
 }
 
-bool Tile::Collidable() const {
+bool Tile::IsTop() const {
 	for (size_t i = 0; i < COLLIDABLE_SIZE; ++i) {
 		if (id == COLLIDABLE[i]) {
 			return true;

@@ -22,7 +22,7 @@ void PlayerFallingState::Update(float deltaTime) {
 
 	// If we get a collision or platform beneath us, go into either walking or idle
 	if (tileBottomLeft && tileBottomRight 
-		&& ((tileBottomLeft->Collidable() || tileBottomRight->Collidable()) ||
+		&& ((tileBottomLeft->IsTop() || tileBottomRight->IsTop()) ||
 			(tileBottomLeft->IsPlatform() || tileBottomRight->IsPlatform())
 			)) {
 			player->SetDy(0);

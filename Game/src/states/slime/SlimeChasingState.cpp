@@ -33,7 +33,7 @@ void SlimeChasingState::Update(float deltaTime) {
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			if (!tileLeft || !tileBottomLeft ||
 				(tileLeft && tileBottomLeft
-					&& (tileLeft->Collidable() || !tileBottomLeft->Collidable()))) {
+					&& (tileLeft->IsTop() || !tileBottomLeft->IsTop()))) {
 				slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
 			}
 
@@ -59,7 +59,7 @@ void SlimeChasingState::Update(float deltaTime) {
 		
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			if (!tileRight || !tileBottomRight ||
-				(tileRight && tileBottomRight && (tileRight->Collidable() || !tileBottomRight->Collidable()))) {
+				(tileRight && tileBottomRight && (tileRight->IsTop() || !tileBottomRight->IsTop()))) {
 				slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 			}
 		}

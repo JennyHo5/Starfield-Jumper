@@ -15,7 +15,7 @@ public:
     float GetY() const { return y; }
     int GetID() const { return id; }
 
-    bool Collidable() const;
+    bool IsTop() const;
 
     bool IsPlatform() const;
 

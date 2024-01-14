@@ -21,12 +21,14 @@ void PlayerWalkingState::Update(float deltaTime) {
 	else {
 		player->CheckBottomCollisions();
 
+		// If left key is pressed, set player's position to left
 		if (App::IsKeyPressed(VK_LEFT) || App::IsKeyPressed(0x41)) {
-			printf("player walking left\n");
 			player->SetX(player->GetX() - PlAYER_WALKING_SPEED * deltaTime);
 			player->SetDirection(0);
 			player->CheckLeftCollisions();
 		}
+
+		// If right key is pressed, set player's position to right
 		else if (App::IsKeyPressed(VK_RIGHT) || App::IsKeyPressed(0x44)) {
 			player->SetX(player->GetX() + PlAYER_WALKING_SPEED * deltaTime);
 			player->SetDirection(1);

@@ -27,10 +27,14 @@ The main game's state machine manages the overall flow of the game and transitio
 
 ### Play State
 
-The Play State consists of:
+The Play State's variables include:
 - **LevelMaker**: Make a GameLevel randomly using unique algorithms.
 - **GameLevel**: Represents the game level, including map, entities and game objects.
 - **Player**: Represents the character that could controlled by the player.
+
+The Play State's functions include:
+- **Enter**, **Update**, **Render**, **Exit** for game loop.
+- **SpawnEnemies**: Add enemy entities (slime, bat) to the game level.
 
 ### Level Maker
 

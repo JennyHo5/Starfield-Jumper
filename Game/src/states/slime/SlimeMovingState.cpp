@@ -44,7 +44,7 @@ void SlimeMovingState::Update(float deltaTime) {
 			// Slime is on the ground
 			if (!tileLeft || !tileBottomLeft ||
 				(tileLeft && tileBottomLeft
-					&& (tileLeft->Collidable() || !tileBottomLeft->Collidable()))) {
+					&& (tileLeft->IsTop() || !tileBottomLeft->IsTop()))) {
 				slime->SetX(slime->GetX() + SLIME_RUNNING_SPEED * deltaTime);
 				//Reset direction
 				movingDirection = 1;
@@ -81,7 +81,7 @@ void SlimeMovingState::Update(float deltaTime) {
 		if (tileBottom && !tileBottom->IsPlatform()) {
 			// Slime is on the ground
 			if (!tileRight || !tileBottomRight ||
-				(tileRight && tileBottomRight && (tileRight->Collidable() || !tileBottomRight->Collidable()))) {
+				(tileRight && tileBottomRight && (tileRight->IsTop() || !tileBottomRight->IsTop()))) {
 				slime->SetX(slime->GetX() - SLIME_RUNNING_SPEED * deltaTime);
 				//Reset direction
 				movingDirection = 0;

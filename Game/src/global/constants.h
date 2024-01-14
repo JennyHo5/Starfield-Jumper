@@ -29,7 +29,7 @@ const int PLATFORMS_SIZE = 3;
 const int COLLIDABLE[] = { 166, 167 };
 const int COLLIDABLE_SIZE = 5;
 
-const int MAP_WIDTH = 200;
+const int MAP_WIDTH = 100;
 const int MAP_HEIGHT = 12;
 const int GROUND_HEIGHT = MAP_HEIGHT * 1 / 5;
 const int PILLAR_HEIGHT = MAP_HEIGHT * 1 / 5;

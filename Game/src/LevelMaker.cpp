@@ -17,7 +17,7 @@ std::vector<std::vector<int>> LevelMaker::GenerateMapData() const {
 		}
 
 		// Chance to just be emptyness for the column
-		if (GetRandom(2) == 1) {
+		if (GetRandom(3) == 1) {
 			for (int y = 0; y < GROUND_HEIGHT; y++) {
 				mapData[x][y] = TILE_ID_EMPTY;
 			}

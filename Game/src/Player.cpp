@@ -48,7 +48,7 @@ void Player::CheckLeftCollisions() {
 
 	// Place player outside the x bounds on one of the tiles to reset the overlap
 	if (tileTopLeft && tileBottomLeft) {
-		if (tileTopLeft->Collidable() || tileBottomLeft->Collidable()) {
+		if (tileTopLeft->IsTop() || tileBottomLeft->IsTop()) {
 			SetX(tileTopLeft->GetX() + TILE_SIZE / 2 + PLAYER_WIDTH / 2);
 		}
 	}
@@ -68,7 +68,7 @@ void Player::CheckRightCollisions() {
 
 	// Place player outside the x bounds on one of the tiles to reset the overlap
 	if (tileTopRight && tileBottomRight) {
-		if (tileTopRight->Collidable() || tileBottomRight->Collidable()) {
+		if (tileTopRight->IsTop() || tileBottomRight->IsTop()) {
 			SetX(tileTopRight->GetX() - TILE_SIZE / 2 - PLAYER_WIDTH / 2);
 		}
 	}
@@ -84,7 +84,7 @@ void Player::CheckBottomCollisions() {
 
 	if (tileBottomLeft && tileBottomRight) {
 		// If bottom tiles are not tops
-		if (!tileBottomLeft->Collidable() && !tileBottomRight->Collidable()) {
+		if (!tileBottomLeft->IsTop() && !tileBottomRight->IsTop()) {
 			// If bottom tiles are not platforms
 			if (!tileBottomLeft->IsPlatform() && !tileBottomRight->IsPlatform()) {
 				SetDy(0);
