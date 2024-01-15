@@ -2,7 +2,7 @@
 #include "TileMap.h"
 
 TileMap::TileMap(int width, int height) : width(width), height(height) {
-    tiles.resize(width, std::vector<Tile*>(height, new Tile(0, 0, 0))); // Initialize the 2D vector with default tiles
+    tiles.resize(width, std::vector<Tile*>(height, nullptr)); // Initialize the 2D vector with default tiles
 }
 
 TileMap::~TileMap() {

@@ -16,7 +16,10 @@ The following system/engine blocks are pre-programmed before Jan 12, 2024 by mys
 - Game Level class
 - Player class
 
-## Main Game
+## Game
+
+The Play State's variables include:
+- **State Machine**: a *static* *global* state machine for the whole game. It can be access by every other classes. It is initialized before the main function is called and is destroyed after the main function returns. *When using Diagnose Tool to detect memory leak, it will still on the memory if main function does not return.*
 
 The main game's state machine manages the overall flow of the game and transitions between the following states:
 
@@ -98,3 +101,7 @@ The Slime entity's variables include:
 The Bat entity's variables include:
 
 - **State Machine**: Manages states like Flying, Dead, etc.
+
+### Other Important Classes
+
+- **Util**: Includes useful helper functions (GetRandom, etc.) that is used for other classes frequently.
