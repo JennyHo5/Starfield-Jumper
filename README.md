@@ -23,6 +23,8 @@ Featuring unique level generation mechanics that ensure each playthrough is a un
 
 To start the game as a Visual Studio solution, open Game.sln in Visual Studio, then click on "Start without Debugging" button or press ctrl + F5.
 
+You can also download it from [itch.io](https://jennyho5.itch.io/starfield-jumper) and play on Windows.
+
 ## How to Play
 
 Use direction keys (WASD and Up/Down/Left/Right) to move and Space key to jump.
